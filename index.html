@@ -1,0 +1,2466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServiceNow CAD Mock Exam & Study Hub (229 Questions)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --bg-app: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-subtle: #cbd5e1;
+      
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-subtle: #94a3b8;
+      
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --primary-light: #e0e7ff;
+      --primary-glow: rgba(99, 102, 241, 0.15);
+      
+      --sn-green: #10b981;
+      --sn-green-dark: #059669;
+      --sn-green-light: #ecfdf5;
+      
+      --danger: #ef4444;
+      --danger-light: #fef2f2;
+      --warning: #f59e0b;
+      --warning-light: #fffbeb;
+      
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg-app: #090d16;
+      --bg-card: #131b2e;
+      --bg-card-subtle: #1c2640;
+      --border-color: #23304e;
+      --border-subtle: #2d3d63;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      
+      --primary: #818cf8;
+      --primary-hover: #6366f1;
+      --primary-light: rgba(129, 140, 248, 0.12);
+      --primary-glow: rgba(129, 140, 248, 0.2);
+      
+      --sn-green: #34d399;
+      --sn-green-dark: #10b981;
+      --sn-green-light: rgba(52, 211, 153, 0.12);
+      
+      --danger: #f87171;
+      --danger-light: rgba(248, 113, 113, 0.12);
+      --warning: #fbbf24;
+      --warning-light: rgba(251, 191, 36, 0.12);
+      
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+      --shadow-lg: 0 10px 20px -3px rgb(0 0 0 / 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-app);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #6366f1 0%, #10b981 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.15rem;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+    }
+
+    .brand-text h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .brand-text h1 .badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      background: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      background: var(--bg-card-subtle);
+      padding: 0.25rem;
+      border-radius: var(--radius-md);
+      gap: 0.2rem;
+    }
+
+    .nav-tab {
+      padding: 0.4rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-tab:hover {
+      color: var(--text-main);
+    }
+
+    .nav-tab.active {
+      background: var(--bg-card);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .icon-btn:hover {
+      color: var(--text-main);
+      border-color: var(--border-subtle);
+      background: var(--bg-card-subtle);
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .view-section {
+      display: none;
+    }
+
+    .view-section.active {
+      display: block;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* DASHBOARD */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 600px;
+    }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .stat-info h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .stat-info p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* PRACTICE MODES GRID */
+    .modes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .mode-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .mode-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .mode-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+    }
+
+    .mode-badge.primary { background: var(--primary-light); color: var(--primary); }
+    .mode-badge.success { background: var(--sn-green-light); color: var(--sn-green-dark); }
+    .mode-badge.warning { background: var(--warning-light); color: var(--warning); }
+    .mode-badge.danger { background: var(--danger-light); color: var(--danger); }
+
+    .mode-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .mode-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.45;
+    }
+
+    .mode-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.15rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card-subtle);
+      border-color: var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: var(--border-color);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border-subtle);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-card-subtle);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-success {
+      background: var(--sn-green);
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: var(--sn-green-dark);
+    }
+
+    /* TOPIC BADGES */
+    .topics-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .topic-item {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .topic-item:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .topic-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .topic-count {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* SESSION VIEW (STUDY & EXAM) */
+    .session-header {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .session-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .progress-bar-container {
+      flex: 1;
+      max-width: 320px;
+      height: 8px;
+      background: var(--bg-card-subtle);
+      border-radius: 9999px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--sn-green));
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .timer-display {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      background: var(--bg-card-subtle);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .timer-display.low-time {
+      color: var(--danger);
+      background: var(--danger-light);
+      border-color: var(--danger);
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    .session-body {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .session-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* QUESTION CARD */
+    .question-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .q-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .q-tags {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: var(--bg-card-subtle);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    .q-type-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .question-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.55;
+      color: var(--text-main);
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--border-color);
+      background: var(--bg-card);
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+
+    .option-item:hover:not(.locked) {
+      border-color: var(--primary);
+      background: var(--bg-card-subtle);
+    }
+
+    .option-item.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .option-item.correct {
+      border-color: var(--sn-green) !important;
+      background: var(--sn-green-light) !important;
+    }
+
+    .option-item.incorrect {
+      border-color: var(--danger) !important;
+      background: var(--danger-light) !important;
+    }
+
+    .opt-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--text-muted);
+    }
+
+    .option-item.selected .opt-letter {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .option-item.correct .opt-letter {
+      background: var(--sn-green);
+      color: white;
+      border-color: var(--sn-green);
+    }
+
+    .option-item.incorrect .opt-letter {
+      background: var(--danger);
+      color: white;
+      border-color: var(--danger);
+    }
+
+    .opt-text {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      padding-top: 0.15rem;
+      flex: 1;
+    }
+
+    .opt-status-icon {
+      font-size: 1.1rem;
+      display: none;
+    }
+
+    .option-item.correct .opt-status-icon {
+      display: block;
+      color: var(--sn-green-dark);
+    }
+
+    .option-item.incorrect .opt-status-icon {
+      display: block;
+      color: var(--danger);
+    }
+
+    /* FEEDBACK CARD */
+    .feedback-box {
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: none;
+    }
+
+    .feedback-box.active {
+      display: block;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .feedback-box.correct {
+      background: var(--sn-green-light);
+      border: 1px solid var(--sn-green);
+      color: var(--sn-green-dark);
+    }
+
+    .feedback-box.incorrect {
+      background: var(--danger-light);
+      border: 1px solid var(--danger);
+      color: #991b1b;
+    }
+
+    .feedback-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .feedback-explanation {
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* CONTROLS */
+    .q-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+
+    /* SIDEBAR PALETTE */
+    .palette-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .palette-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.4rem;
+      max-height: 380px;
+      overflow-y: auto;
+      padding-right: 0.25rem;
+    }
+
+    .pal-btn {
+      aspect-ratio: 1;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card-subtle);
+      color: var(--text-main);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .pal-btn:hover {
+      border-color: var(--primary);
+    }
+
+    .pal-btn.current {
+      outline: 2px solid var(--primary);
+      outline-offset: 1px;
+    }
+
+    .pal-btn.answered {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .pal-btn.correct {
+      background: var(--sn-green-light);
+      color: var(--sn-green-dark);
+      border-color: var(--sn-green);
+    }
+
+    .pal-btn.incorrect {
+      background: var(--danger-light);
+      color: var(--danger);
+      border-color: var(--danger);
+    }
+
+    .pal-btn.flagged::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--warning);
+    }
+
+    .palette-legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+    }
+
+    /* NOTES BOX */
+    .notes-box {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .notes-textarea {
+      width: 100%;
+      min-height: 70px;
+      padding: 0.6rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card-subtle);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.85rem;
+      resize: vertical;
+    }
+
+    /* RESULTS VIEW */
+    .results-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+
+    .results-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .results-badge.pass {
+      background: var(--sn-green-light);
+      color: var(--sn-green-dark);
+      border: 2px solid var(--sn-green);
+    }
+
+    .results-badge.fail {
+      background: var(--danger-light);
+      color: var(--danger);
+      border: 2px solid var(--danger);
+    }
+
+    .score-big {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .score-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .results-stats-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .res-stat {
+      text-align: center;
+    }
+
+    .res-stat .val {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .res-stat .lbl {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .results-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* QUESTION BANK VIEW */
+    .bank-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .search-bar-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 280px;
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    .search-input:focus {
+      outline: 2px solid var(--primary);
+    }
+
+    .filter-select {
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .bank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .bank-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .bank-item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      gap: 1rem;
+    }
+
+    .bank-q-text {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .bank-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .bank-opt {
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-card-subtle);
+    }
+
+    .bank-opt.correct {
+      background: var(--sn-green-light);
+      color: var(--sn-green-dark);
+      font-weight: 600;
+    }
+
+    /* KEYBOARD HINT PILL */
+    .kbd-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.15rem 0.45rem;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--text-main);
+      color: var(--bg-card);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.85rem;
+      font-weight: 600;
+      z-index: 100;
+      display: none;
+      animation: slideInUp 0.2s ease;
+    }
+
+    @keyframes slideInUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 99;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.75rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-wrap: wrap;
+      }
+      .nav-tabs {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
+      .hero-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="brand" onclick="app.showView('dashboard')">
+        <div class="brand-logo">CAD</div>
+        <div class="brand-text">
+          <h1>ServiceNow CAD <span class="badge">Developer</span></h1>
+          <p>229 Real Mock Exam Questions & Application Developer Simulator</p>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-view="dashboard" onclick="app.showView('dashboard')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Dashboard
+        </button>
+        <button class="nav-tab" data-view="bank" onclick="app.showView('bank')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Question Bank (229)
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle Theme" onclick="app.toggleTheme()">
+          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="icon-btn" title="Reset Progress" onclick="app.confirmReset()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- DASHBOARD VIEW -->
+    <div id="view-dashboard" class="view-section active">
+      <div class="hero-banner">
+        <div class="hero-content">
+          <h2>Pass the ServiceNow Certified Application Developer (CAD) Exam</h2>
+          <p>Practice with 229 verified questions across all 6 official CAD practice sets. Test your knowledge in Client Scripts, Business Rules, Flow Designer, Access Controls, and Application Lifecycle.</p>
+        </div>
+        <div>
+          <button class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;" onclick="app.startExam(60, 'full-exam', 'Real CAD Exam (60 Qs)')">
+            ⚡ Start 60-Q Practice Exam
+          </button>
+        </div>
+      </div>
+
+      <!-- STATS STRIP -->
+      <div class="stats-strip">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--primary-light); color: var(--primary);">💻</div>
+          <div class="stat-info">
+            <h3 id="statTotalAnswered">0</h3>
+            <p>Questions Answered</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--sn-green-light); color: var(--sn-green-dark);">🎯</div>
+          <div class="stat-info">
+            <h3 id="statAccuracy">0%</h3>
+            <p>Overall Accuracy</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--warning-light); color: var(--warning);">⭐</div>
+          <div class="stat-info">
+            <h3 id="statStarred">0</h3>
+            <p>Starred For Review</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--danger-light); color: var(--danger);">⚠️</div>
+          <div class="stat-info">
+            <h3 id="statMissed">0</h3>
+            <p>Mistakes Bank</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRACTICE MODES -->
+      <h2 class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        Study & Practice Modes
+      </h2>
+      <div class="modes-grid">
+        <!-- MODE: REAL EXAM SIMULATOR -->
+        <div class="mode-card" onclick="app.startExam(60, 'exam-sim', 'Timed CAD Exam (60 Qs)')">
+          <div>
+            <span class="mode-badge primary">⏱️ Exam Simulation</span>
+            <h3>Timed Exam Simulator</h3>
+            <p>60 questions randomized from all 229 CAD items, 90 minutes timer, passing threshold 70%. Simulates the real ServiceNow CAD certification exam.</p>
+          </div>
+          <div class="mode-footer">
+            <span>60 Questions · 90 Mins</span>
+            <span class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Launch</span>
+          </div>
+        </div>
+
+        <!-- MODE: QUICK 20 DRILL -->
+        <div class="mode-card" onclick="app.startStudy(20, 'random', 'Quick 20 CAD Workout')">
+          <div>
+            <span class="mode-badge success">⚡ Quick Study</span>
+            <h3>Quick 20 Drill</h3>
+            <p>20 random developer questions with instant answers and explanations. Perfect for a fast 10-minute high-yield practice session.</p>
+          </div>
+          <div class="mode-footer">
+            <span>20 Questions · Instant Feedback</span>
+            <span class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Start Drill</span>
+          </div>
+        </div>
+
+        <!-- MODE: SET 3 FULL -->
+        <div class="mode-card" onclick="app.startBySourceFilter('Set 3', 'CAD Set 3 (63 Qs)')">
+          <div>
+            <span class="mode-badge primary">📚 Complete Set</span>
+            <h3>Set 3 Complete Reviewer</h3>
+            <p>Work through Set 3 (Parts 1 & 2) covering 63 core developer questions on scripting APIs, Record Producers, and Access Controls.</p>
+          </div>
+          <div class="mode-footer">
+            <span>63 Questions · Parts 1 & 2</span>
+            <span class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Practice Set</span>
+          </div>
+        </div>
+
+        <!-- MODE: SET 4 FULL -->
+        <div class="mode-card" onclick="app.startBySourceFilter('Set 4', 'CAD Set 4 (78 Qs)')">
+          <div>
+            <span class="mode-badge primary">🚀 Advanced</span>
+            <h3>Set 4 Complete Reviewer</h3>
+            <p>Work through Set 4 (Parts 1 & 2) with 78 intensive application developer questions on server-side scripts, scopes, and automated testing.</p>
+          </div>
+          <div class="mode-footer">
+            <span>78 Questions · Parts 1 & 2</span>
+            <span class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Practice Set</span>
+          </div>
+        </div>
+
+        <!-- MODE: MISTAKES DRILL -->
+        <div class="mode-card" onclick="app.startMistakesPractice()">
+          <div>
+            <span class="mode-badge danger">⚠️ Targeted Repair</span>
+            <h3>Weak-Spot Mistakes Bank</h3>
+            <p>Target only the questions you have answered incorrectly in previous study sessions until you achieve 100% mastery.</p>
+          </div>
+          <div class="mode-footer">
+            <span id="mistakesCountLabel">0 Questions in Bank</span>
+            <span class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Review Missed</span>
+          </div>
+        </div>
+
+        <!-- MODE: STARRED ITEMS -->
+        <div class="mode-card" onclick="app.startStarredPractice()">
+          <div>
+            <span class="mode-badge warning">⭐ Bookmarked</span>
+            <h3>Starred Questions</h3>
+            <p>Revisit all questions you explicitly marked for later review and reinforcement before taking the real exam.</p>
+          </div>
+          <div class="mode-footer">
+            <span id="starredCountLabel">0 Bookmarked Questions</span>
+            <span class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Review Starred</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOPIC BREAKDOWN -->
+      <div class="topics-section">
+        <h2 class="section-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          Study by CAD Learning Domains
+        </h2>
+        <div class="topics-grid" id="topicsGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- SESSION VIEW (STUDY & EXAM) -->
+    <div id="view-session" class="view-section">
+      <div class="session-header">
+        <div class="session-meta">
+          <button class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;" onclick="app.confirmExitSession()">
+            ✕ Exit
+          </button>
+          <span id="sessionTitleBadge" class="mode-badge primary" style="margin: 0;">Study Mode</span>
+          <span id="questionCounterText" style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);">
+            Q 1 of 60
+          </span>
+        </div>
+
+        <div class="progress-bar-container">
+          <div id="sessionProgressBar" class="progress-bar-fill"></div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div id="examTimer" class="timer-display" style="display: none;">
+            ⏱️ <span id="timerText">90:00</span>
+          </div>
+          <button id="starBtn" class="icon-btn" title="Star this question" onclick="app.toggleCurrentStar()">
+            <svg id="starIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="session-body">
+        <!-- QUESTION MAIN -->
+        <div class="question-card">
+          <div class="q-top-row">
+            <div class="q-tags" id="qTagsContainer">
+              <!-- tags -->
+            </div>
+            <div id="qTypeHint" class="q-type-badge">Single Choice</div>
+          </div>
+
+          <div class="question-text" id="qText">
+            <!-- Question text -->
+          </div>
+
+          <div class="options-list" id="qOptionsContainer">
+            <!-- Options rendered here -->
+          </div>
+
+          <!-- FEEDBACK BOX (STUDY MODE) -->
+          <div id="feedbackBox" class="feedback-box">
+            <div id="feedbackTitle" class="feedback-title">✓ Correct!</div>
+            <div id="feedbackExp" class="feedback-explanation">Explanation and answer details.</div>
+          </div>
+
+          <!-- CONTROLS -->
+          <div class="q-controls">
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <button class="btn btn-outline" id="prevBtn" onclick="app.prevQuestion()">
+                ← Prev
+              </button>
+              <button class="btn btn-outline" id="nextBtn" onclick="app.nextQuestion()">
+                Next →
+              </button>
+              <span class="kbd-hint" title="Use Arrow keys or A-E / 1-5 keys">⌨️ A-E, Arrows</span>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+              <button class="btn btn-secondary" id="checkBtn" onclick="app.checkAnswer()">
+                Check Answer
+              </button>
+              <button class="btn btn-primary" id="finishExamBtn" style="display: none;" onclick="app.confirmFinishExam()">
+                Finish Exam
+              </button>
+            </div>
+          </div>
+
+          <!-- PERSONAL NOTES ACCORDION -->
+          <div class="notes-box">
+            <label style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">
+              Personal Study Note (Auto-saved)
+            </label>
+            <textarea id="questionNoteInput" class="notes-textarea" placeholder="Add your notes, syntax reminders, or key points for this CAD question..." oninput="app.saveCurrentNote()"></textarea>
+          </div>
+        </div>
+
+        <!-- PALETTE SIDEBAR -->
+        <div class="palette-card">
+          <div class="palette-title">
+            <span>Questions Overview</span>
+            <span id="paletteCount" style="font-size: 0.75rem; color: var(--text-muted);">0 / 60</span>
+          </div>
+
+          <div class="palette-grid" id="paletteGrid">
+            <!-- Palette buttons -->
+          </div>
+
+          <div class="palette-legend">
+            <div class="legend-item"><div class="legend-dot" style="background: var(--primary);"></div> Answered</div>
+            <div class="legend-item"><div class="legend-dot" style="background: var(--bg-card-subtle); border: 1px solid var(--border-color);"></div> Pending</div>
+            <div class="legend-item"><div class="legend-dot" style="background: var(--sn-green);"></div> Correct</div>
+            <div class="legend-item"><div class="legend-dot" style="background: var(--danger);"></div> Wrong</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS VIEW -->
+    <div id="view-results" class="view-section">
+      <div class="results-card">
+        <div id="resultsBadge" class="results-badge pass">Passed</div>
+        <div class="score-big" id="resultsScore">85%</div>
+        <div class="score-subtitle" id="resultsSub">51 of 60 questions correct (Passing grade is 70%)</div>
+
+        <div class="results-stats-row">
+          <div class="res-stat">
+            <div class="val" id="resTime">18:42</div>
+            <div class="lbl">Time Taken</div>
+          </div>
+          <div class="res-stat">
+            <div class="val" id="resCorrect" style="color: var(--sn-green);">51</div>
+            <div class="lbl">Correct</div>
+          </div>
+          <div class="res-stat">
+            <div class="val" id="resWrong" style="color: var(--danger);">9</div>
+            <div class="lbl">Incorrect</div>
+          </div>
+          <div class="res-stat">
+            <div class="val" id="resUnanswered">0</div>
+            <div class="lbl">Unanswered</div>
+          </div>
+        </div>
+
+        <div class="results-actions">
+          <button class="btn btn-primary" onclick="app.reviewResults('all')">
+            Review All Questions
+          </button>
+          <button class="btn btn-secondary" id="reviewWrongBtn" onclick="app.reviewResults('wrong')">
+            Review Mistakes Only
+          </button>
+          <button class="btn btn-outline" onclick="app.showView('dashboard')">
+            Back to Dashboard
+          </button>
+        </div>
+      </div>
+
+      <!-- DETAILED REVIEW ACCORDION / LIST -->
+      <div id="resultsDetailContainer" style="display: flex; flex-direction: column; gap: 1rem;">
+        <!-- Filled on review -->
+      </div>
+    </div>
+
+    <!-- QUESTION BANK VIEW -->
+    <div id="view-bank" class="view-section">
+      <div class="bank-header">
+        <div>
+          <h2 class="section-title" style="margin-bottom: 0.25rem;">Full CAD Question Bank Explorer</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Browse, search, and inspect all 229 ServiceNow CAD developer exam questions with instant answers and filters.</p>
+        </div>
+
+        <div class="search-bar-row">
+          <input type="text" id="bankSearchInput" class="search-input" placeholder="Search keywords (e.g., GlideRecord, ACL, Record Producer, Script Include, Stash, Flow)..." oninput="app.filterBank()">
+          <select id="bankSourceFilter" class="filter-select" onchange="app.filterBank()">
+            <option value="all">All Sets (229)</option>
+            <option value="Page 1 (Q1-50)">Page 1 (Q1-50)</option>
+            <option value="Page 1 (Q51-79)">Page 1 (Q51-79)</option>
+            <option value="Set 3 (Part 1)">Set 3 (Part 1)</option>
+            <option value="Set 3 (Part 2)">Set 3 (Part 2)</option>
+            <option value="Set 4 (Part 1)">Set 4 (Part 1)</option>
+            <option value="Set 4 (Part 2)">Set 4 (Part 2)</option>
+          </select>
+          <select id="bankTopicFilter" class="filter-select" onchange="app.filterBank()">
+            <option value="all">All Topics</option>
+            <!-- Populated -->
+          </select>
+          <select id="bankStatusFilter" class="filter-select" onchange="app.filterBank()">
+            <option value="all">All Status</option>
+            <option value="starred">Starred Only</option>
+            <option value="mistakes">Mistakes Bank Only</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;" id="bankResultsCount">
+        Showing 229 questions
+      </div>
+
+      <div class="bank-list" id="bankList">
+        <!-- Rendered items -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- CONFIRM EXIT MODAL -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-box">
+      <h3 class="modal-title" id="modalTitle">Leave Session?</h3>
+      <p class="modal-desc" id="modalDesc">Your current exam progress will be recorded. Are you sure you want to exit?</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" onclick="app.closeModal()">Cancel</button>
+        <button class="btn btn-primary" id="modalConfirmBtn" onclick="app.handleModalConfirm()">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">Notification message</div>
+
+  <!-- EMBEDDED QUESTION DATA -->
+  <script>
+    const RAW_QUESTIONS = [{"id":1,"question":"What are the objects available in Scheduled Script Execution? (select 2)","options":[{"label":"A","text":"Glide User","isCorrect":false},{"label":"B","text":"Glide Record","isCorrect":true},{"label":"C","text":"Glide Form","isCorrect":false},{"label":"D","text":"Glide System","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Scripting & APIs"]},{"id":2,"question":"What is required to link to source control? (select 3)","options":[{"label":"A","text":"Credentials","isCorrect":false},{"label":"B","text":"Password","isCorrect":true},{"label":"C","text":"Username","isCorrect":true},{"label":"D","text":"Repository URL","isCorrect":true},{"label":"E","text":"Connection Alias","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Lifecycle & Git"]},{"id":3,"question":"Default fields created for a new table: (select all that apply)","options":[{"label":"A","text":"Sys_id","isCorrect":true},{"label":"B","text":"Created and Created By","isCorrect":true},{"label":"C","text":"Updated and Updated By","isCorrect":true},{"label":"D","text":"Updates","isCorrect":true},{"label":"E","text":"State","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":4,"question":"What are the options for Caller Access in a table? (select 3)","options":[{"label":"A","text":"Caller Tracked","isCorrect":false},{"label":"B","text":"Caller Restriction","isCorrect":true},{"label":"C","text":"(empty)","isCorrect":false},{"label":"D","text":"Caller Tracking","isCorrect":true},{"label":"E","text":"---None---","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":5,"question":"Useful methods when applying security through scripting API. (select 2)","options":[{"label":"A","text":"getUserName()","isCorrect":false},{"label":"B","text":"getSysID()","isCorrect":false},{"label":"C","text":"isNewRecord()","isCorrect":true},{"label":"D","text":"isRecordNew()","isCorrect":false},{"label":"E","text":"getUserID()","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Scripting & APIs","Application Security"]},{"id":6,"question":"How many applications menus can an application have?","options":[{"label":"A","text":"1","isCorrect":false},{"label":"B","text":"2","isCorrect":false},{"label":"C","text":"as many as the application design requires","isCorrect":true},{"label":"D","text":"10","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Design & UI"]},{"id":7,"question":"A scoped application containing Flow Designer content dedicated to a particular application is called:","options":[{"label":"A","text":"Spoke","isCorrect":true},{"label":"B","text":"Script Step","isCorrect":false},{"label":"C","text":"Action","isCorrect":false},{"label":"D","text":"Subflow","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Flows & Integrations","Application Lifecycle & Git"]},{"id":8,"question":"Which Report Type(s) can be created by right-clicking on a column header in a table's list? (select 2)","options":[{"label":"A","text":"Line Chart","isCorrect":false},{"label":"B","text":"Bar Chart","isCorrect":true},{"label":"C","text":"Dashboards","isCorrect":false},{"label":"D","text":"Pie Chart","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":9,"question":"What syntax is used in a Record Producer script to access values from Record Producer form fields?","options":[{"label":"A","text":"producer.variablename","isCorrect":true},{"label":"B","text":"producer.variablequestion","isCorrect":false},{"label":"C","text":"current.variablename","isCorrect":false},{"label":"D","text":"current.variablequestion","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Scripting & APIs","Data Model & Import","Application Design & UI"]},{"id":10,"question":"It is a glide system method to call for a system properties in script.","options":[{"label":"A","text":"gs.Property()","isCorrect":false},{"label":"B","text":"gs.getProperties()","isCorrect":false},{"label":"C","text":"gs.getProperty()","isCorrect":true},{"label":"D","text":"gs.Properties()","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Scripting & APIs"]},{"id":11,"question":"It is used to respond on an Event. (select 2)","options":[{"label":"A","text":"Inbound Actions","isCorrect":false},{"label":"B","text":"Script Actions","isCorrect":true},{"label":"C","text":"Email Notifications","isCorrect":true},{"label":"D","text":"Business Rule","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Flows & Integrations"]},{"id":12,"question":"What are the parts of the Form Designer? (select 3)","options":[{"label":"A","text":"Form Layout","isCorrect":true},{"label":"B","text":"Breadcrumbs","isCorrect":false},{"label":"C","text":"Page Header","isCorrect":true},{"label":"D","text":"Field Navigator","isCorrect":true},{"label":"E","text":"Global Search","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":13,"question":"When evaluating Access Controls, ServiceNow searches and evaluates:","options":[{"label":"A","text":"from the most specific match to the most generic match","isCorrect":true},{"label":"B","text":"from the most generic match to the most specific match","isCorrect":false},{"label":"C","text":"from the most specific match to the most updated match","isCorrect":false},{"label":"D","text":"from the most specific match to the most popular match","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Security"]},{"id":14,"question":"Protection Policies can be applied to which of the following: (select 2)","options":[{"label":"A","text":"Email Notifications","isCorrect":false},{"label":"B","text":"Business Rules","isCorrect":false},{"label":"C","text":"Script Includes","isCorrect":true},{"label":"D","text":"UI Actions","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Security"]},{"id":15,"question":"It is used to guide user to populate fields in a form.","options":[{"label":"A","text":"Annotation","isCorrect":true},{"label":"B","text":"User Guide","isCorrect":false},{"label":"C","text":"Comments","isCorrect":false},{"label":"D","text":"User Map","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":16,"question":"It is used for process automation and integration to third party applications.","options":[{"label":"A","text":"Flow Designer","isCorrect":false},{"label":"B","text":"Integration Hub","isCorrect":true},{"label":"C","text":"Virtual Agent","isCorrect":false},{"label":"D","text":"Spoke","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Flows & Integrations"]},{"id":17,"question":"Which of the following cannot be tested by Field Watcher?","options":[{"label":"A","text":"Client Scripts","isCorrect":false},{"label":"B","text":"Business Rules","isCorrect":false},{"label":"C","text":"Scheduled Job","isCorrect":false},{"label":"D","text":"Script Includes","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":18,"question":"Behaviors when setting a field to coalesce. (select 2)","options":[{"label":"A","text":"When match is found, update the existing record.","isCorrect":true},{"label":"B","text":"When match is found, create a new record.","isCorrect":false},{"label":"C","text":"When match is not found, create a new record.","isCorrect":true},{"label":"D","text":"When match is not found, update the existing record.","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":19,"question":"Used to map fields from the source to destination table when importing data.","options":[{"label":"A","text":"Import Sets","isCorrect":false},{"label":"B","text":"Transform Maps","isCorrect":true},{"label":"C","text":"Coalesce","isCorrect":false},{"label":"D","text":"Loaded Data","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":20,"question":"Which of the steps are part of Analysis and Design phase? (select 3)","options":[{"label":"A","text":"Define Business Problem","isCorrect":true},{"label":"B","text":"Define Personas","isCorrect":true},{"label":"C","text":"Define Process Steps","isCorrect":false},{"label":"D","text":"Define Requirements","isCorrect":true},{"label":"E","text":"Define the Formula","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":21,"question":"Used to move customizations between instances.","options":[{"label":"A","text":"Import Set","isCorrect":false},{"label":"B","text":"Transform Maps","isCorrect":false},{"label":"C","text":"Update Set","isCorrect":true},{"label":"D","text":"Update Sources","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":22,"question":"Where would you go to explore course options depending on the roles that you're interested in?","options":[{"label":"A","text":"ServiceNow Website (servicenow.com)","isCorrect":false},{"label":"B","text":"ServiceNow Product Documentation (docs.servicenow.com)","isCorrect":false},{"label":"C","text":"ServiceNow Community (community.servicenow.com)","isCorrect":false},{"label":"D","text":"Now Learning (nowlearning.servicenow.com)","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Security"]},{"id":23,"question":"Task is a sample of: (select 2)","options":[{"label":"A","text":"Child Class","isCorrect":false},{"label":"B","text":"Base Class","isCorrect":true},{"label":"C","text":"Parent Class","isCorrect":true},{"label":"D","text":"Extended Class","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":24,"question":"What does each row in a list represent?","options":[{"label":"A","text":"A field in a record","isCorrect":false},{"label":"B","text":"A record on a table","isCorrect":true},{"label":"C","text":"An action in a table","isCorrect":false},{"label":"D","text":"A table in the Platform","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":25,"question":"What offers a quick form of filter navigation?","options":[{"label":"A","text":"Column Headings","isCorrect":false},{"label":"B","text":"Field Values","isCorrect":false},{"label":"C","text":"Additional Actions","isCorrect":false},{"label":"D","text":"Breadcrumbs","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":26,"question":"By personalizing a list, you change the layout of a list for anyone in your organization using the Platform.","options":[{"label":"A","text":"True","isCorrect":false},{"label":"B","text":"False","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":27,"question":"What are the three components that make up a filter condition? (select 3)","options":[{"label":"A","text":"Type","isCorrect":false},{"label":"B","text":"Operator","isCorrect":true},{"label":"C","text":"Field","isCorrect":true},{"label":"D","text":"Value","isCorrect":true},{"label":"E","text":"User","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":28,"question":"How would you add and apply, or remove tags through in-line editing?","options":[{"label":"A","text":"Use the filter condition builder to add a new tag","isCorrect":false},{"label":"B","text":"Select the record and right-click to add a new tag","isCorrect":false},{"label":"C","text":"Add a Tag column using list personalization","isCorrect":true},{"label":"D","text":"Select 'Tags' through the List views","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":29,"question":"What area in a form displays records from tables that have a relationship to the current record?","options":[{"label":"A","text":"Fields","isCorrect":false},{"label":"B","text":"Related activities","isCorrect":false},{"label":"C","text":"More Options","isCorrect":false},{"label":"D","text":"Related lists","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":30,"question":"How would you select which fields on a form you want to display?","options":[{"label":"A","text":"Select More options","isCorrect":false},{"label":"B","text":"Select Personalize Form","isCorrect":true},{"label":"C","text":"Select Choice fields","isCorrect":false},{"label":"D","text":"Change the form view","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":31,"question":"What are the two options to hide a field from a form through form personalization? (select 2)","options":[{"label":"A","text":"Uncheck the field's box","isCorrect":true},{"label":"B","text":"Select the form and press Delete","isCorrect":false},{"label":"C","text":"Select the Hide field icon","isCorrect":true},{"label":"D","text":"Change the form view","isCorrect":false},{"label":"E","text":"Reset the form view","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":32,"question":"Which fields cannot be hidden on a form?","options":[{"label":"A","text":"Restricted fields","isCorrect":false},{"label":"B","text":"Any fields can be hidden","isCorrect":false},{"label":"C","text":"Work notes","isCorrect":false},{"label":"D","text":"Mandatory fields","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":33,"question":"What are the names of the two modules in the Service Desk application, where you can locate work assigned to you and/or your group(s)? (select 2)","options":[{"label":"A","text":"My Groups Tasks","isCorrect":false},{"label":"B","text":"Group Assignments","isCorrect":false},{"label":"C","text":"My Work","isCorrect":true},{"label":"D","text":"My Groups Work","isCorrect":true},{"label":"E","text":"My Tasks","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Design & UI"]},{"id":34,"question":"Which of the following client-side scripts can be used to Record Producers? (select 2)","options":[{"label":"A","text":"Catalog Client Scripts","isCorrect":true},{"label":"B","text":"UI Policies","isCorrect":false},{"label":"C","text":"Client Scripts","isCorrect":false},{"label":"D","text":"Catalog UI Policies","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Scripting & APIs","Data Model & Import","Application Design & UI"]},{"id":35,"question":"Which feature facilitates synchronous collaboration within one record?","options":[{"label":"A","text":"User activities","isCorrect":false},{"label":"B","text":"Work notes","isCorrect":false},{"label":"C","text":"Group chats","isCorrect":false},{"label":"D","text":"User presence","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":36,"question":"Which tab would you use to communicate to stakeholders and document activities through the task's lifecycle?","options":[{"label":"A","text":"Record Journal","isCorrect":false},{"label":"B","text":"Notes","isCorrect":true},{"label":"C","text":"Related Records","isCorrect":false},{"label":"D","text":"Resolution Information","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":37,"question":"What needs to be enabled to only display the Work notes field?","options":[{"label":"A","text":"Show Work notes field","isCorrect":false},{"label":"B","text":"Hide Additional comments field","isCorrect":false},{"label":"C","text":"Hide Customer comments field","isCorrect":false},{"label":"D","text":"Show one journal field","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":38,"question":"What are the two types of Visual Task Boards? (select 2)","options":[{"label":"A","text":"Data Driven","isCorrect":true},{"label":"B","text":"Task","isCorrect":false},{"label":"C","text":"Freeform","isCorrect":true},{"label":"D","text":"To-do Tasks","isCorrect":false},{"label":"E","text":"Organize Task","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":39,"question":"Where can you navigate to learn about Reporting within an instance?","options":[{"label":"A","text":"All > Knowledge > Reports","isCorrect":false},{"label":"B","text":"All > Reports > View/Dashboards","isCorrect":false},{"label":"C","text":"All > Reports > Performance Analytics","isCorrect":false},{"label":"D","text":"All > Reports > Getting Started","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":40,"question":"Which tab in the Report Designer allows you to group data by a specific field(s)?","options":[{"label":"A","text":"Data","isCorrect":false},{"label":"B","text":"Aggregate fields","isCorrect":false},{"label":"C","text":"Group by","isCorrect":false},{"label":"D","text":"Configure","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":41,"question":"What are the two options to distribute a report? (select 2)","options":[{"label":"A","text":"Save and Distribute","isCorrect":false},{"label":"B","text":"Add to Dashboard","isCorrect":true},{"label":"C","text":"Export to HTML","isCorrect":false},{"label":"D","text":"Export to PDF","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":42,"question":"What is a Knowledge Base (KB)?","options":[{"label":"A","text":"The Knowledge homepage","isCorrect":false},{"label":"B","text":"Most useful articles in the Platform","isCorrect":false},{"label":"C","text":"Section of Knowledge categorized articles","isCorrect":true},{"label":"D","text":"Featured content in the Platform","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":43,"question":"How do Knowledge Managers set permissions to who can view or modify articles?","options":[{"label":"A","text":"Share the permalink","isCorrect":false},{"label":"B","text":"Send the article via email","isCorrect":false},{"label":"C","text":"Set Permissions","isCorrect":false},{"label":"D","text":"Set User Criteria","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":44,"question":"Select the different parts of the Knowledge Base architecture (select 2).","options":[{"label":"A","text":"Categories","isCorrect":true},{"label":"B","text":"Authors","isCorrect":false},{"label":"C","text":"Articles","isCorrect":true},{"label":"D","text":"Groups","isCorrect":false},{"label":"E","text":"User Criteria","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":45,"question":"An article can only be associated with one knowledge base.","options":[{"label":"A","text":"True","isCorrect":true},{"label":"B","text":"False","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":46,"question":"What should you do to report problems with an existing article?","options":[{"label":"A","text":"Leave a comment for the System Administrator","isCorrect":false},{"label":"B","text":"Flag the article","isCorrect":true},{"label":"C","text":"Give the article 1 star","isCorrect":false},{"label":"D","text":"Mark the article as not helpful","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":47,"question":"Where do you navigate to get to the Service Catalog?","options":[{"label":"A","text":"All > Catalog Items > Service Catalogs","isCorrect":false},{"label":"B","text":"All > Service Catalog","isCorrect":false},{"label":"C","text":"All > Categories > Service Catalog","isCorrect":false},{"label":"D","text":"All > Self-Service > Service Catalog","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Design & UI"]},{"id":48,"question":"What do catalog items fall under?","options":[{"label":"A","text":"Different catalogs","isCorrect":false},{"label":"B","text":"Different categories","isCorrect":true},{"label":"C","text":"Different services","isCorrect":false},{"label":"D","text":"Different hubs","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Application Design & UI"]},{"id":49,"question":"What are the three types of Open Records you can access in the Platform? (select 3)","options":[{"label":"A","text":"Tasks","isCorrect":true},{"label":"B","text":"Requests","isCorrect":true},{"label":"C","text":"Items","isCorrect":true},{"label":"D","text":"Services","isCorrect":false},{"label":"E","text":"Catalogs","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":50,"question":"What other messaging interfaces can Virtual Agent connect with? (select 3)","options":[{"label":"A","text":"Facebook Messenger","isCorrect":true},{"label":"B","text":"Slack","isCorrect":true},{"label":"C","text":"Instagram Messenger","isCorrect":false},{"label":"D","text":"Snapchat","isCorrect":false},{"label":"E","text":"Now® Mobile apps","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Application Fundamentals"]},{"id":51,"question":"What are the APIs available in Client Scripts? (select 2)","options":[{"label":"A","text":"Glide User","isCorrect":true},{"label":"B","text":"Glide Record","isCorrect":false},{"label":"C","text":"Glide Form","isCorrect":true},{"label":"D","text":"Glide System","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q1-50)","tags":["Scripting & APIs"]},{"id":52,"question":"Which feature facilitates synchronous collaboration within one record?","options":[{"label":"A","text":"User activities","isCorrect":false},{"label":"B","text":"Work notes","isCorrect":false},{"label":"C","text":"Group chats","isCorrect":false},{"label":"D","text":"User presence","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q1-50)","tags":["Data Model & Import"]},{"id":53,"question":"A graphical view of relationships among tables is a _____.","options":[{"label":"A","text":"Schema map","isCorrect":true},{"label":"B","text":"Dependency view","isCorrect":false},{"label":"C","text":"Graphical User Interface","isCorrect":false},{"label":"D","text":"Map source report","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Data Model & Import"]},{"id":54,"question":"Which one of the following is true for the Application Picker?","options":[{"label":"A","text":"All custom application scope and the Global scope appear in the Application Picker","isCorrect":true},{"label":"B","text":"All applications in ServiceNow, including baseline applications like Incident, appear in the Application Picker","isCorrect":false},{"label":"C","text":"Only custom applications appear in the Application Picker","isCorrect":false},{"label":"D","text":"Only downloaded applications appear in the Application Picker","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":55,"question":"When creating an application through the Guided Application Creator, which of the following is a user experience option?","options":[{"label":"A","text":"Portal","isCorrect":false},{"label":"B","text":"Mobile","isCorrect":true},{"label":"C","text":"Self-service","isCorrect":false},{"label":"D","text":"Workspace","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":56,"question":"When writing a Client Script to provide feedback targeted at a specific field, which method should be used?","options":[{"label":"A","text":"g_form.showInfoMessage()","isCorrect":false},{"label":"B","text":"g_form.showFieldMsg()","isCorrect":true},{"label":"C","text":"g_form.addInfoMessage()","isCorrect":false},{"label":"D","text":"g_form.addFieldMsg()","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Scripting & APIs","Data Model & Import"]},{"id":57,"question":"Which actions can a Business Rule take without scripting?","options":[{"label":"A","text":"Set field values and write to the system log","isCorrect":false},{"label":"B","text":"Set field values and generate an event","isCorrect":false},{"label":"C","text":"Set field values and add message","isCorrect":true},{"label":"D","text":"Set field values and query the database","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Scripting & APIs"]},{"id":58,"question":"Which server-side object provides methods for working with dates when writing a script in a privately scoped application?","options":[{"label":"A","text":"GlideDateTime","isCorrect":true},{"label":"B","text":"GlideRecord","isCorrect":false},{"label":"C","text":"GlideSystem","isCorrect":false},{"label":"D","text":"current","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Scripting & APIs","Application Lifecycle & Git"]},{"id":59,"question":"Application developers can specify which ServiceNow page a user sees after submitting a new record using the Record Producer UI. How is the page specified?","options":[{"label":"A","text":"Create an application property to store the URL","isCorrect":false},{"label":"B","text":"Configure the page in the Module that opens the Record Producer UI","isCorrect":false},{"label":"C","text":"Write an after Business Rule script for the Record Producer's table: window.redirect = \"URL\";","isCorrect":false},{"label":"D","text":"Write a script in the Record Producer's Script field: producer.redirect = \"URL\";","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Data Model & Import","Application Design & UI"]},{"id":60,"question":"What are the objects available in Inbound Actions? (select 2)","options":[{"label":"A","text":"Previous","isCorrect":false},{"label":"B","text":"Event","isCorrect":false},{"label":"C","text":"Current","isCorrect":true},{"label":"D","text":"Email","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":61,"question":"Which server-side API debug log method is available for scoped applications?","options":[{"label":"A","text":"gs.log()","isCorrect":false},{"label":"B","text":"gs.info()","isCorrect":true},{"label":"C","text":"gs.debuglog()","isCorrect":false},{"label":"D","text":"gs.print()","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Scripting & APIs","Application Lifecycle & Git"]},{"id":62,"question":"Which script types execute on the server? (Choose three.)","options":[{"label":"A","text":"Business Rule","isCorrect":true},{"label":"B","text":"Client Scripts","isCorrect":false},{"label":"C","text":"UI Policies","isCorrect":false},{"label":"D","text":"Script Actions","isCorrect":true},{"label":"E","text":"Scheduled Jobs","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q51-79)","tags":["Scripting & APIs"]},{"id":63,"question":"Which of the following is NOT a trigger type in Flow Designer?","options":[{"label":"A","text":"Outbound Email","isCorrect":true},{"label":"B","text":"Application","isCorrect":false},{"label":"C","text":"Record","isCorrect":false},{"label":"D","text":"Schedule","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Flows & Integrations"]},{"id":64,"question":"When creating new application files in a scoped application, cross scope access is turned on by default in which of the following?","options":[{"label":"A","text":"REST messages","isCorrect":false},{"label":"B","text":"Table","isCorrect":true},{"label":"C","text":"Script Include","isCorrect":false},{"label":"D","text":"Workflow","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Lifecycle & Git"]},{"id":65,"question":"In an Email Notification, which one of the following is NOT true for the Weight field?","options":[{"label":"A","text":"Only Notifications with the highest weight for the same record and recipients are sent","isCorrect":false},{"label":"B","text":"A Weight value of zero means that no email should be sent","isCorrect":true},{"label":"C","text":"The Weight value defaults to zero","isCorrect":false},{"label":"D","text":"A Weight value of zero means the Notification is always sent when the Notification's When to send criteria is met","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Data Model & Import","Flows & Integrations"]},{"id":66,"question":"Which of the following objects does a Display Business Rule NOT have access to?","options":[{"label":"A","text":"previous","isCorrect":true},{"label":"B","text":"GlideSystem","isCorrect":false},{"label":"C","text":"g_scratchpad","isCorrect":false},{"label":"D","text":"current","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Scripting & APIs"]},{"id":67,"question":"Which one of the following is NOT a UI Action type?","options":[{"label":"A","text":"List choice","isCorrect":false},{"label":"B","text":"Form button","isCorrect":false},{"label":"C","text":"List banner button","isCorrect":false},{"label":"D","text":"Form choice","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":68,"question":"Which of the following is NOT supported by Flow Designer?","options":[{"label":"A","text":"Call a subflow from a flow","isCorrect":false},{"label":"B","text":"Test a flow with rollback","isCorrect":true},{"label":"C","text":"Use Delegated Developer","isCorrect":false},{"label":"D","text":"Run a flow from a MetricBase Trigger","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Flows & Integrations"]},{"id":69,"question":"Which of the following are true for reports in ServiceNow? (Choose three.)","options":[{"label":"A","text":"Any user can see any report shared with them.","isCorrect":false},{"label":"B","text":"Can be a graphical representation of data.","isCorrect":true},{"label":"C","text":"All users can generate reports on any table.","isCorrect":false},{"label":"D","text":"Can be run on demand by authorized users.","isCorrect":true},{"label":"E","text":"Can be scheduled to be run and distributed by email.","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":70,"question":"Modules must have a Link type. Which one of the following is a list of Link types?","options":[{"label":"A","text":"List of Records, Separator, Catalog Type, Roles","isCorrect":false},{"label":"B","text":"Assessment, List of Records, Separator, Timeline Page","isCorrect":true},{"label":"C","text":"List of Records, Content Page, Order, URL (from arguments:)","isCorrect":false},{"label":"D","text":"Assessment, List of Records, Content Page, Roles","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Design & UI"]},{"id":71,"question":"What are the options in creating a table in Guided App Creator? (select 3)","options":[{"label":"A","text":"Upload a spreadsheet","isCorrect":true},{"label":"B","text":"Delete a table","isCorrect":false},{"label":"C","text":"Update a table","isCorrect":false},{"label":"D","text":"Extend a table","isCorrect":true},{"label":"E","text":"Create a table","isCorrect":true}],"isMultiple":true,"source":"CAD Page 1 (Q51-79)","tags":["Data Model & Import"]},{"id":72,"question":"When working in the Form Designer, configuring the label of a field in a child table changes the label on which table(s)?","options":[{"label":"A","text":"base table","isCorrect":false},{"label":"B","text":"child table","isCorrect":true},{"label":"C","text":"parent table","isCorrect":false},{"label":"D","text":"all tables","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Data Model & Import"]},{"id":73,"question":"Which roles grant access to source control repository operations such as importing applications from source control, or linking an application to source control? (Choose two.)","options":[{"label":"A","text":"source_control","isCorrect":true},{"label":"B","text":"source_control_admin","isCorrect":false},{"label":"C","text":"admin","isCorrect":true},{"label":"D","text":"git_admin","isCorrect":false}],"isMultiple":true,"source":"CAD Page 1 (Q51-79)","tags":["Application Security","Data Model & Import","Application Lifecycle & Git"]},{"id":74,"question":"Which one of the following is true for a Script Include with a Protection Policy value of Protected?","options":[{"label":"A","text":"Any user with the protected_edit role can see and edit the Script Include","isCorrect":false},{"label":"B","text":"The Protection policy option can only be enabled by a user with the admin role","isCorrect":false},{"label":"C","text":"The Protection Policy is applied only if the glide.app.apply_protection system property value is true","isCorrect":false},{"label":"D","text":"The Protection Policy is applied only if the application is downloaded from the ServiceNow App Store","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Scripting & APIs","Application Security"]},{"id":75,"question":"Which one of the following is true for GlideUser (g_user) methods?","options":[{"label":"A","text":"Can be used in Client Scripts and UI Policies only","isCorrect":false},{"label":"B","text":"Can be used in Business Rules only","isCorrect":false},{"label":"C","text":"Can be used in Client Scripts, UI Policies, and UI Actions","isCorrect":true},{"label":"D","text":"Can be used in Business Rules, and Scripts Includes","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Scripting & APIs"]},{"id":76,"question":"When configuring a module, what does the Override application menu roles configuration option do?","options":[{"label":"A","text":"Users with the module role but without access to the application menu access the module","isCorrect":true},{"label":"B","text":"Self-Service users can access the module even though they do not have roles","isCorrect":false},{"label":"C","text":"Admin is given access to the module even if Access Controls would ordinarily prevent access","isCorrect":false},{"label":"D","text":"Users with access to the application menu can see the module even if they don't have the module role","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Security","Application Design & UI"]},{"id":77,"question":"In which order ACLs are evaluated?","options":[{"label":"A","text":"Role > Condition > Script","isCorrect":true},{"label":"B","text":"Role > Script > Condition","isCorrect":false},{"label":"C","text":"Condition > Role > Script","isCorrect":false},{"label":"D","text":"Condition > Script > Role","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Security"]},{"id":78,"question":"What link type is used for creating system properties module?","options":[{"label":"A","text":"List of Records","isCorrect":false},{"label":"B","text":"Script (from Arguments)","isCorrect":false},{"label":"C","text":"URL (from Arguments)","isCorrect":true},{"label":"D","text":"HTML (from Arguments)","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Design & UI"]},{"id":79,"question":"When configuring the content of an Email Notification, which syntax should be used to reference the properties of an event triggering the Notification?","options":[{"label":"A","text":"${event.<property name>}","isCorrect":true},{"label":"B","text":"${current.<property name>}","isCorrect":false},{"label":"C","text":"${<property name>.getDisplayValue()}","isCorrect":false},{"label":"D","text":"${gs.<property name>}","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Flows & Integrations"]},{"id":80,"question":"What is the default module created for an application?","options":[{"label":"A","text":"List Filter","isCorrect":false},{"label":"B","text":"Homepage","isCorrect":false},{"label":"C","text":"Single Record","isCorrect":false},{"label":"D","text":"List of Records","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Design & UI"]},{"id":81,"question":"Which of the following will give the object sysID?","options":[{"label":"A","text":"gs.getUserName()","isCorrect":false},{"label":"B","text":"gs.info()","isCorrect":false},{"label":"C","text":"gs.getSysID()","isCorrect":false},{"label":"D","text":"gs.getUserID","isCorrect":false},{"label":"E","text":"gs.getUserID()","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":82,"question":"What is Virtual Agent powered by?","options":[{"label":"A","text":"ServiceNow Code","isCorrect":false},{"label":"B","text":"Python","isCorrect":false},{"label":"C","text":"Artificial Intelligence (AI)","isCorrect":true},{"label":"D","text":"HTML","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":83,"question":"It is used for installing and updating applications on all company instances.","options":[{"label":"A","text":"Application Repository","isCorrect":true},{"label":"B","text":"Update Set","isCorrect":false},{"label":"C","text":"Import Set","isCorrect":false},{"label":"D","text":"Transform Map","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":84,"question":"Locally stored set of changes","options":[{"label":"A","text":"Stash","isCorrect":true},{"label":"B","text":"Branch","isCorrect":false},{"label":"C","text":"Repository","isCorrect":false},{"label":"D","text":"Update Set","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":85,"question":"Can inherited fields be deleted from a table?","options":[{"label":"A","text":"Yes, select the red X in the left-most column in the table definition","isCorrect":false},{"label":"B","text":"Yes, but only if they are text fields","isCorrect":false},{"label":"C","text":"Yes, but only if there has never been any saved field data","isCorrect":false},{"label":"D","text":"No, inherited fields cannot be deleted from a child table","isCorrect":true}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Data Model & Import"]},{"id":86,"question":"Which glide system is NOT part of Scoped Applications?","options":[{"label":"A","text":"gs.log","isCorrect":true},{"label":"B","text":"gs.info","isCorrect":false},{"label":"C","text":"gs.warn","isCorrect":false},{"label":"D","text":"gs.error","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Scripting & APIs","Application Lifecycle & Git"]},{"id":87,"question":"What is the purpose of the Application Picker?","options":[{"label":"A","text":"Select an application to run","isCorrect":false},{"label":"B","text":"Select an application as a favorite in the Application Navigator","isCorrect":false},{"label":"C","text":"Choose an application to edit and set the Application Scope","isCorrect":true},{"label":"D","text":"Choose an application to download and install","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":88,"question":"What are Application Files in a ServiceNow application?","options":[{"label":"A","text":"An XML export of an application's table records","isCorrect":false},{"label":"B","text":"CSV files containing data imported into an application","isCorrect":false},{"label":"C","text":"ServiceNow artifacts comprising an application","isCorrect":true},{"label":"D","text":"XML exports of an application's Update Set","isCorrect":false}],"isMultiple":false,"source":"CAD Page 1 (Q51-79)","tags":["Application Fundamentals"]},{"id":89,"question":"Which one of the following is the fastest way to create and configure a Record Producer?","options":[{"label":"A","text":"Create a Catalog Category, open the category, and select the Add New Record Producer button","isCorrect":false},{"label":"B","text":"Use the Record Producer module then add and configure all variables manually","isCorrect":false},{"label":"C","text":"Open the table in the Table records and select the Add to Service Catalog Related Link","isCorrect":true},{"label":"D","text":"Open the table's form, right-click on the form header, and select the Create Record Producer menu item","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import","Application Design & UI"]},{"id":90,"question":"Which one of the following is the baseline behavior of a table in a privately-scoped application?","options":[{"label":"A","text":"The table and its data are not accessible using web services","isCorrect":false},{"label":"B","text":"Any Business Rule can read, write, delete, and update from the table","isCorrect":false},{"label":"C","text":"Only artifacts in the table's application can read from the table","isCorrect":false},{"label":"D","text":"All application scopes can read from the table","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import","Application Lifecycle & Git"]},{"id":91,"question":"When configuring a module, what does the Override application menu roles configuration option do?","options":[{"label":"A","text":"Users with the module role but without access to the application menu access the module","isCorrect":true},{"label":"B","text":"Self-Service users can access the module even though they do not have roles","isCorrect":false},{"label":"C","text":"Admin is given access to the module even if Access Controls would ordinarily prevent access","isCorrect":false},{"label":"D","text":"Users with access to the application menu can see the module even if they don't have the module role","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Application Security","Application Design & UI"]},{"id":92,"question":"Which of the following features are available to Global applications? (Choose two.)","options":[{"label":"A","text":"Automated Test Framework","isCorrect":true},{"label":"B","text":"Source Control","isCorrect":false},{"label":"C","text":"Delegated Development","isCorrect":false},{"label":"D","text":"Flow Designer","isCorrect":true}],"isMultiple":true,"source":"CAD Set 3 (Part 1)","tags":["Application Fundamentals"]},{"id":93,"question":"What is a Module?","options":[{"label":"A","text":"The functionality within an application menu such as opening a page in the content frame or a separate tab or window","isCorrect":true},{"label":"B","text":"A group of menus, or pages, providing related information and functionality to end-users","isCorrect":false},{"label":"C","text":"A way of helping users quickly access information and services by filtering the items in the Application Navigator","isCorrect":false},{"label":"D","text":"A web-based way of providing software to end-users","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Application Design & UI"]},{"id":94,"question":"Identify the incorrect statement about Delegated Development in ServiceNow.","options":[{"label":"A","text":"Administrators can grant non-admin users the ability to develop global applications","isCorrect":true},{"label":"B","text":"Administrators can specify which application file types the developer can access.","isCorrect":false},{"label":"C","text":"Administrators can grant the developer access to script fields.","isCorrect":false},{"label":"D","text":"Administrators can grant the developer access to security records.","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Application Fundamentals"]},{"id":95,"question":"Here is the Business Rule script template: This type of JavaScript function is known as:","options":[{"label":"A","text":"Constructor","isCorrect":false},{"label":"B","text":"Scoped","isCorrect":false},{"label":"C","text":"Anonymous","isCorrect":false},{"label":"D","text":"Self-invoking","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Scripting & APIs"]},{"id":96,"question":"What are some of the benefits of extending an existing table such as the Task table when creating a new application?","options":[{"label":"A","text":"You can repurpose existing fields by simply changing the label.","isCorrect":true},{"label":"B","text":"Use existing fields with no modifications.","isCorrect":true},{"label":"C","text":"Existing logic from the parent table will be automatically applied to the new table.","isCorrect":true},{"label":"D","text":"All of the parent table records are copied to the new table.","isCorrect":false}],"isMultiple":true,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import"]},{"id":97,"question":"Which method call returns true only if the currently logged in user has the catalog_admin role and in no other case?","options":[{"label":"A","text":"g_user.hasRole('catalog_admin')","isCorrect":false},{"label":"B","text":"g_user.hasRoleExactly('catalog_admin')","isCorrect":true},{"label":"C","text":"g_user.hasRoleOnly('catalog_admin')","isCorrect":false},{"label":"D","text":"g_user.hasRoleFromList('catalog_admin')","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Application Security","Application Design & UI"]},{"id":98,"question":"How must Application Access be configured to prevent all other private application scopes from creating configuration records on an application's data tables?","options":[{"label":"A","text":"You must create Access Controls to prevent all other application scopes from creating configuration records on an application's data tables rather than using Application Access","isCorrect":false},{"label":"B","text":"Set the Accessible from field value to All application scopes and de-select the Can create option","isCorrect":false},{"label":"C","text":"Set the Accessible from field value to This application scope only and de-select the Allow access to this table via web services option","isCorrect":false},{"label":"D","text":"Set the Accessible from field value to This application scope only","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import","Flows & Integrations","Application Lifecycle & Git"]},{"id":99,"question":"It is best practice to define the business requirements and the process(es) an application will manage as part of the application development plan. What are some of the considerations to document as part of the business process?","options":[{"label":"A","text":"Business problem, data input/output, users/stakeholders, and process steps","isCorrect":true},{"label":"B","text":"Business problem, data input/output, project schedule, and process steps","isCorrect":false},{"label":"C","text":"Business problem, data input/output, users/stakeholders, and database capacity","isCorrect":false},{"label":"D","text":"Business problem, users/stakeholders, available licenses, and database capacity","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Application Fundamentals"]},{"id":100,"question":"To see what scripts, reports, and other application artifacts will be in a published application:","options":[{"label":"A","text":"Enter the name of the Application in the Global search field","isCorrect":false},{"label":"B","text":"Open the list of Update Sets for the instance","isCorrect":false},{"label":"C","text":"Examine the Application Files Related List in the application to be published","isCorrect":true},{"label":"D","text":"Open the artifact records individually to verify the value in the Application field","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Scripting & APIs"]},{"id":101,"question":"Application developers configure ServiceNow using industry standard JavaScript to...","options":[{"label":"A","text":"Enable the right-click to edit the context menus on applications in the navigator","isCorrect":false},{"label":"B","text":"Extend and add functionality","isCorrect":true},{"label":"C","text":"Customize the organization's company logo and banner text","isCorrect":false},{"label":"D","text":"Configure the outgoing email display name","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Scripting & APIs"]},{"id":102,"question":"Which of the following are configured in an Email Notification?","options":[{"label":"A","text":"Who will receive the notification.","isCorrect":true},{"label":"B","text":"What content will be in the notification.","isCorrect":true},{"label":"C","text":"When to send the notification.","isCorrect":true},{"label":"D","text":"How to send the notification.","isCorrect":false}],"isMultiple":true,"source":"CAD Set 3 (Part 1)","tags":["Flows & Integrations"]},{"id":103,"question":"Which of the following CANNOT be debugged using the Field Watcher?","options":[{"label":"A","text":"Business Rules","isCorrect":false},{"label":"B","text":"Script Includes","isCorrect":true},{"label":"C","text":"Client Scripts","isCorrect":false},{"label":"D","text":"Access Controls","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import"]},{"id":104,"question":"Which of the following is NOT supported by Flow Designer?","options":[{"label":"A","text":"Call a subflow from a flow","isCorrect":false},{"label":"B","text":"Test a flow with rollback","isCorrect":true},{"label":"C","text":"Use Delegated Developer","isCorrect":false},{"label":"D","text":"Run a flow from a MetricBase Trigger","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Flows & Integrations"]},{"id":105,"question":"Which of the following statements does NOT apply when extending an existing table?","options":[{"label":"A","text":"The parent table's Access Controls are evaluated when determining access to the new table's records and fields","isCorrect":false},{"label":"B","text":"The new table inherits the functionality built into the parent table","isCorrect":false},{"label":"C","text":"The new table inherits all of the fields from the parent table","isCorrect":false},{"label":"D","text":"You must script and configure all required behaviors","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import"]},{"id":106,"question":"Which of the following are true for reports in ServiceNow? (Choose three.)","options":[{"label":"A","text":"Any user can see any report shared with them.","isCorrect":false},{"label":"B","text":"Can be a graphical representation of data.","isCorrect":true},{"label":"C","text":"All users can generate reports on any table.","isCorrect":false},{"label":"D","text":"Can be run on demand by authorized users.","isCorrect":true},{"label":"E","text":"Can be scheduled to be run and distributed by email.","isCorrect":true}],"isMultiple":true,"source":"CAD Set 3 (Part 1)","tags":["Application Fundamentals"]},{"id":107,"question":"Which of the following is NOT a trigger type in Flow Designer?","options":[{"label":"A","text":"Outbound Email","isCorrect":true},{"label":"B","text":"Application","isCorrect":false},{"label":"C","text":"Record","isCorrect":false},{"label":"D","text":"Schedule","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Flows & Integrations"]},{"id":108,"question":"One of the uses of the ServiceNow REST API Explorer is:","options":[{"label":"A","text":"Practice using REST to interact with public data providers","isCorrect":false},{"label":"B","text":"Find resources on the web for learning about REST","isCorrect":false},{"label":"C","text":"Convert SOAP Message functions to REST methods","isCorrect":false},{"label":"D","text":"Create sample code for sending REST requests to ServiceNow","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Scripting & APIs"]},{"id":109,"question":"Which platform feature can be used to determine the relationships between field in an Import Set table to field in an existing ServiceNow table?","options":[{"label":"A","text":"Business Service Management Map","isCorrect":false},{"label":"B","text":"Data Sources","isCorrect":false},{"label":"C","text":"Transform Map","isCorrect":true},{"label":"D","text":"Cl Relationship Builder","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import"]},{"id":110,"question":"When configuring an Access Control which has no condition or script, which one of the following statements is NOT true?","options":[{"label":"A","text":"table.* will grant access to every field in a record","isCorrect":false},{"label":"B","text":"table.None will grant access to every record on the table","isCorrect":false},{"label":"C","text":"table.field will grant access to a specific field in a record","isCorrect":false},{"label":"D","text":"table.id will grant access to a specific record on the table","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Scripting & APIs","Application Security"]},{"id":111,"question":"Which source control operation is available from BOTH Studio and the Git Repository?","options":[{"label":"A","text":"Create Branch","isCorrect":true},{"label":"B","text":"Apply Remote Changes","isCorrect":false},{"label":"C","text":"Stash Local Changes","isCorrect":false},{"label":"D","text":"Edit Repository Configurations","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Application Lifecycle & Git"]},{"id":112,"question":"When creating new application files in a scoped application, cross scope access is turned on by default in which of the following?","options":[{"label":"A","text":"REST messages","isCorrect":false},{"label":"B","text":"Table","isCorrect":true},{"label":"C","text":"Script Include","isCorrect":false},{"label":"D","text":"Workflow","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Application Lifecycle & Git"]},{"id":113,"question":"Which one of the following is true?","options":[{"label":"A","text":"A UI Policy's Actions execute before the UI Policy's Scripts","isCorrect":true},{"label":"B","text":"The execution order for a UI Policy's Scripts and Actions is determined at runtime","isCorrect":false},{"label":"C","text":"A UI Policy's Scripts execute before the UI Policy's Actions","isCorrect":false},{"label":"D","text":"A UI Policy's Actions and Scripts execute at the same time","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Application Fundamentals"]},{"id":114,"question":"When evaluating Access Controls, ServiceNow searches and evaluates:","options":[{"label":"A","text":"Only for matches on the current table","isCorrect":false},{"label":"B","text":"Only for matches on the current field","isCorrect":false},{"label":"C","text":"From the most specific match to the most generic match","isCorrect":true},{"label":"D","text":"From the most generic match to the most specific match","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Application Security"]},{"id":115,"question":"Which Report Type(s) can be created by right-clicking on a column header in a table's list?","options":[{"label":"A","text":"Bar Chart, Pie Chart, Histogram, and Line","isCorrect":false},{"label":"B","text":"Bar Chart","isCorrect":false},{"label":"C","text":"Bar Chart, Pie Chart, and Histogram","isCorrect":false},{"label":"D","text":"Bar Chart and Pie Chart","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import"]},{"id":116,"question":"When working in the Form Designer, configuring the label of a field in a child table changes the label on which table(s)?","options":[{"label":"A","text":"base table","isCorrect":false},{"label":"B","text":"child table","isCorrect":true},{"label":"C","text":"parent table","isCorrect":false},{"label":"D","text":"all tables","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import"]},{"id":117,"question":"In an Email Notification, which one of the following is NOT true for the Weight field?","options":[{"label":"A","text":"Only Notifications with the highest weight for the same record and recipients are sent","isCorrect":false},{"label":"B","text":"A Weight value of zero means that no email should be sent","isCorrect":true},{"label":"C","text":"The Weight value defaults to zero","isCorrect":false},{"label":"D","text":"A Weight value of zero means the Notification is always sent when the Notification's When to send criteria is met","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Data Model & Import","Flows & Integrations"]},{"id":118,"question":"Which of the following methods are useful in Access Control scripts?","options":[{"label":"A","text":"g_user.hasRole() and current.isNewRecord()","isCorrect":false},{"label":"B","text":"gs.hasRole() and current.isNewRecord()","isCorrect":true},{"label":"C","text":"g_user.hasRole() and current.isNew()","isCorrect":false},{"label":"D","text":"gs.hasRole() and current.isNew()","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 1)","tags":["Scripting & APIs","Application Security"]},{"id":119,"question":"Modules must have a Link type. Which one of the following is a list of Link types?","options":[{"label":"A","text":"List of Records, Separator, Catalog Type, Roles","isCorrect":false},{"label":"B","text":"Assessment, List of Records, Separator, Timeline Page","isCorrect":true},{"label":"C","text":"List of Records, Content Page, Order, URL (from arguments:)","isCorrect":false},{"label":"D","text":"Assessment, List of Records, Content Page, Roles","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Design & UI"]},{"id":120,"question":"Which one of the following is part of the client-side scripting API?","options":[{"label":"A","text":"workflow.scratchpad","isCorrect":false},{"label":"B","text":"GlideUser object (g_user)","isCorrect":true},{"label":"C","text":"current and previous objects","isCorrect":false},{"label":"D","text":"GlideSystem object (gs)","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs"]},{"id":121,"question":"Which objects can you use in a Scheduled Script Execution (Scheduled Job) script?","options":[{"label":"A","text":"GlideRecord and current","isCorrect":false},{"label":"B","text":"GlideUser and GlideRecord","isCorrect":false},{"label":"C","text":"GlideSystem and GlideRecord","isCorrect":true},{"label":"D","text":"GlideSystem and current","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs"]},{"id":122,"question":"Which one of the following is true for GlideUser (g_user) methods?","options":[{"label":"A","text":"Can be used in Client Scripts and UI Policies only","isCorrect":false},{"label":"B","text":"Can be used in Business Rules only","isCorrect":false},{"label":"C","text":"Can be used in Client Scripts, UI Policies, and UI Actions","isCorrect":true},{"label":"D","text":"Can be used in Business Rules, and Scripts Includes","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs"]},{"id":123,"question":"Which of the following statements is not for the Form Designer?","options":[{"label":"A","text":"To add a field to the form layout, drag the field from the Fields tab to the desired destination on the form.","isCorrect":false},{"label":"B","text":"To create a new field on a form's table, drag the appropriate data type from the Field Types tab to the form and then configure the new field.","isCorrect":false},{"label":"C","text":"To remove a field from the form layout, hover over the field to enable the Action buttons, and select the Delete (X) button.","isCorrect":false},{"label":"D","text":"To add a section to the form layout, drag it from the Field Types tab to the desired destination on the form.","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Fundamentals"]},{"id":124,"question":"Which one of the following methods prints a message on a blue background to the top of the current form by default?","options":[{"label":"A","text":"g_form.addInfoMsg()","isCorrect":false},{"label":"B","text":"g_form.addInfoMessage()","isCorrect":true},{"label":"C","text":"g_form.showFieldMessage()","isCorrect":false},{"label":"D","text":"g_form.showFieldMsg()","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Fundamentals"]},{"id":125,"question":"There is a basic strategy when creating a Utils Script Include. Identify the step that does not belong.","options":[{"label":"A","text":"Identify the table","isCorrect":true},{"label":"B","text":"Script the function(s)","isCorrect":false},{"label":"C","text":"Create a class","isCorrect":false},{"label":"D","text":"Create a prototype object from the new class","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs"]},{"id":126,"question":"In a Business Rule, which one of the following returns true if the currently logged in user has the admin role?","options":[{"label":"A","text":"g_form.hasRoleExactly('admin')","isCorrect":false},{"label":"B","text":"gs.hasRole('admin')","isCorrect":true},{"label":"C","text":"g_form.hasRole('admin')","isCorrect":false},{"label":"D","text":"gs.hasRoleExactly('admin')","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs","Application Security"]},{"id":127,"question":"When a ServiceNow instance requests information from a web service, ServiceNow is the web service:","options":[{"label":"A","text":"Publisher","isCorrect":false},{"label":"B","text":"Specialist","isCorrect":false},{"label":"C","text":"Provider","isCorrect":false},{"label":"D","text":"Consumer","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Fundamentals"]},{"id":128,"question":"Which of the following objects does a Display Business Rule NOT have access to?","options":[{"label":"A","text":"previous","isCorrect":true},{"label":"B","text":"GlideSystem","isCorrect":false},{"label":"C","text":"g_scratchpad","isCorrect":false},{"label":"D","text":"current","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs"]},{"id":129,"question":"Which one of the following is NOT a method used for logging messages in a server-side script for a privately-scoped application?","options":[{"label":"A","text":"gs.log()","isCorrect":true},{"label":"B","text":"gs.error()","isCorrect":false},{"label":"C","text":"gs.warn()","isCorrect":false},{"label":"D","text":"gs.debug()","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs","Application Lifecycle & Git"]},{"id":130,"question":"What syntax is used in a Record Producer script to access values from Record Producer form fields?","options":[{"label":"A","text":"producer.field_name","isCorrect":false},{"label":"B","text":"producer.variablename","isCorrect":true},{"label":"C","text":"current.variable_name","isCorrect":false},{"label":"D","text":"current.field_name","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs","Data Model & Import","Application Design & UI"]},{"id":131,"question":"Which one of the following is true for a Script Include with a Protection Policy value of Protected?","options":[{"label":"A","text":"Any user with the protected_edit role can see and edit the Script Include","isCorrect":false},{"label":"B","text":"The Protection policy option can only be enabled by a user with the admin role","isCorrect":false},{"label":"C","text":"The Protection Policy is applied only if the glide.app.apply_protection system property value is true","isCorrect":false},{"label":"D","text":"The Protection Policy is applied only if the application is downloaded from the ServiceNow App Store","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs","Application Security"]},{"id":132,"question":"Which one of the following is true regarding Application Scope?","options":[{"label":"A","text":"All applications are automatically part of the Global scope","isCorrect":false},{"label":"B","text":"Applications downloaded from 3rd party ServiceNow application developers cannot have naming conflicts","isCorrect":true},{"label":"C","text":"Any developer can edit any application","isCorrect":false},{"label":"D","text":"Developers can choose the prefix for a scope's namespace","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Lifecycle & Git"]},{"id":133,"question":"Which objects can be used in Inbound Action scripts?","options":[{"label":"A","text":"current and previous","isCorrect":false},{"label":"B","text":"current and email","isCorrect":true},{"label":"C","text":"current and event","isCorrect":false},{"label":"D","text":"current and producer","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs"]},{"id":134,"question":"Which Application Access configuration field(s) are NOT available if the Can read configuration field is NOT selected?","options":[{"label":"A","text":"All access to this table via web services","isCorrect":false},{"label":"B","text":"Can create, Can update, and Can delete","isCorrect":true},{"label":"C","text":"Can read does not affect the availability of other Application Access fields","isCorrect":false},{"label":"D","text":"Allow configuration","isCorrect":false}],"isMultiple":true,"source":"CAD Set 3 (Part 2)","tags":["Data Model & Import"]},{"id":135,"question":"Which one of the following client-side scripts apply to Record Producers?","options":[{"label":"A","text":"Catalog Client Scripts and Catalog UI Policies","isCorrect":true},{"label":"B","text":"UI Scripts and UI Actions","isCorrect":false},{"label":"C","text":"UI Scripts and Record Producer Scripts","isCorrect":false},{"label":"D","text":"Client Scripts and UI Policies","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs","Data Model & Import","Application Design & UI"]},{"id":136,"question":"From the list below, identify one reason an application might NOT be a good fit with ServiceNow. The application:","options":[{"label":"A","text":"Needs workflow to manage processes","isCorrect":false},{"label":"B","text":"Requires 'as-is' use of low-level programming libraries","isCorrect":true},{"label":"C","text":"Requires reporting capabilities","isCorrect":false},{"label":"D","text":"Uses forms extensively to interact with data","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Fundamentals"]},{"id":137,"question":"Which one of the following is NOT a UI Action type?","options":[{"label":"A","text":"List choice","isCorrect":false},{"label":"B","text":"Form button","isCorrect":false},{"label":"C","text":"List banner button","isCorrect":false},{"label":"D","text":"Form choice","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Fundamentals"]},{"id":138,"question":"Which one of the following is NOT a purpose of application scoping?","options":[{"label":"A","text":"Provide a relationship between application artifacts","isCorrect":false},{"label":"B","text":"Provide a way of tracking the user who developed an application","isCorrect":true},{"label":"C","text":"Provide a namespace (prefix and scope name) to prevent cross application name collisions","isCorrect":false},{"label":"D","text":"Provide controls for how scripts from another scope can alter tables in a scoped application","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Fundamentals"]},{"id":139,"question":"Which one of the following is true for a table with the 'Allow configuration' Application Access option selected?","options":[{"label":"A","text":"Only the in scope application's scripts can create Business Rules for the table","isCorrect":false},{"label":"B","text":"Any user with the application's user role can modify the application's scripts","isCorrect":false},{"label":"C","text":"Out of scope applications can create Business Rules for the table","isCorrect":true},{"label":"D","text":"Out of scope applications can add new tables to the scoped application","isCorrect":false}],"isMultiple":true,"source":"CAD Set 3 (Part 2)","tags":["Data Model & Import"]},{"id":140,"question":"When configuring the content of an Email Notification, which syntax should be used to reference the properties of an event triggering the Notification? (Check It Once)","options":[{"label":"A","text":"${event.}","isCorrect":true},{"label":"B","text":"${current.}","isCorrect":false},{"label":"C","text":"${property name>.getDisplayValue()}","isCorrect":false},{"label":"D","text":"${gs.}","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Flows & Integrations"]},{"id":141,"question":"A scoped application containing Flow Designer content dedicated to a particular application is called a(n):","options":[{"label":"A","text":"Spoke","isCorrect":true},{"label":"B","text":"Bundle","isCorrect":false},{"label":"C","text":"Action Way","isCorrect":false},{"label":"D","text":"Flow","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Flows & Integrations","Application Lifecycle & Git"]},{"id":142,"question":"The source control operation used to store local changes on an instance for later application is called a(n).","options":[{"label":"A","text":"Branch","isCorrect":false},{"label":"B","text":"Tag","isCorrect":false},{"label":"C","text":"Stash","isCorrect":true},{"label":"D","text":"Update set","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Lifecycle & Git"]},{"id":143,"question":"Which one of the following is NOT required to link a ServiceNow application to a Git repository?","options":[{"label":"A","text":"Password","isCorrect":false},{"label":"B","text":"URL","isCorrect":false},{"label":"C","text":"User name","isCorrect":false},{"label":"D","text":"Application name","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Lifecycle & Git"]},{"id":144,"question":"When configuring a REST Message, the Endpoint is:","options":[{"label":"A","text":"The commands to the REST script to stop execution","isCorrect":false},{"label":"B","text":"The URI of the data to be accessed, queried, or modified","isCorrect":true},{"label":"C","text":"Information about the format of the returned data","isCorrect":false},{"label":"D","text":"The response from the provider indicating there is no data to send back","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Fundamentals"]},{"id":145,"question":"Which roles grant access to source control repository operations such as importing applications from source control, or linking an application to source control? (Choose two.)","options":[{"label":"A","text":"source_control","isCorrect":true},{"label":"B","text":"source_control_admin","isCorrect":false},{"label":"C","text":"admin","isCorrect":true},{"label":"D","text":"git_admin","isCorrect":false}],"isMultiple":true,"source":"CAD Set 3 (Part 2)","tags":["Application Security","Data Model & Import","Application Lifecycle & Git"]},{"id":146,"question":"Which one of the following is NOT a debugging strategy for client-side scripts?","options":[{"label":"A","text":"g_form.addInfoMessage()","isCorrect":false},{"label":"B","text":"Field Watcher","isCorrect":false},{"label":"C","text":"jslog()","isCorrect":false},{"label":"D","text":"gs.log()","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Scripting & APIs"]},{"id":147,"question":"If the Create module field is selected when creating a table, what is the new module's default behavior?","options":[{"label":"A","text":"Open an empty form so new records can be created","isCorrect":false},{"label":"B","text":"Open a link to a wiki article with instructions on how to customize the behavior of the new module","isCorrect":false},{"label":"C","text":"Display an empty homepage for the application","isCorrect":false},{"label":"D","text":"Display a list of all records from the table","isCorrect":true}],"isMultiple":true,"source":"CAD Set 3 (Part 2)","tags":["Data Model & Import","Application Design & UI"]},{"id":148,"question":"which of the following is not a way to install an application on SNOW instance?","options":[{"label":"A","text":"select the copy button on the application record","isCorrect":true},{"label":"B","text":"download and install a 3rd party application from the SNOW store.","isCorrect":false},{"label":"C","text":"Download and install an application from SNOW share web site","isCorrect":false},{"label":"D","text":"Install an application from application repository.","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Fundamentals"]},{"id":149,"question":"true about application picker and application scope?","options":[{"label":"A","text":"select a global in application picker sets the application scope to incident","isCorrect":false},{"label":"B","text":"select an application from the application picker sets the application scope","isCorrect":true}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Application Lifecycle & Git"]},{"id":150,"question":"which of the following is not a caller access field option?","options":[{"label":"A","text":"Caller tracking","isCorrect":false},{"label":"B","text":"caller restrictions","isCorrect":false},{"label":"C","text":"Caller permission","isCorrect":true},{"label":"D","text":"None","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Data Model & Import"]},{"id":151,"question":"Which of the following is true about deleting field from table?","options":[{"label":"A","text":"user defined non inherited field can be deleted.","isCorrect":true},{"label":"B","text":"any field on the table can be deleted","isCorrect":false},{"label":"C","text":"table record is deleted when a field is deleted","isCorrect":false},{"label":"D","text":"inherited field can be deleted","isCorrect":false}],"isMultiple":false,"source":"CAD Set 3 (Part 2)","tags":["Data Model & Import"]},{"id":152,"question":"Identify the script that always execute on server side (choose 3)","options":[{"label":"A","text":"Business Rule","isCorrect":true},{"label":"B","text":"Scheduled jobs","isCorrect":true},{"label":"C","text":"UI actions","isCorrect":false},{"label":"D","text":"Script actions","isCorrect":true}],"isMultiple":true,"source":"CAD Set 4 (Part 1)","tags":["Scripting & APIs"]},{"id":153,"question":"Which one of the following is the fastest way to create and configure a Record Producer?","options":[{"label":"A","text":"Create a Catalog Category, open the category, and select the Add New Record Producer button","isCorrect":false},{"label":"B","text":"Use the Record Producer module then add and configure all variables manually","isCorrect":false},{"label":"C","text":"Open the table in the Table records and select the Add to Service Catalog Related Link","isCorrect":true},{"label":"D","text":"Open the table’s form, right-click on the form header, and select the Create Record Producer menu item.","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import","Application Design & UI"]},{"id":154,"question":"Which one of the following is the baseline behavior of a table in a privately-scoped application?","options":[{"label":"A","text":"The table and its data are not accessible using web services","isCorrect":false},{"label":"B","text":"Any Business Rule can read, write, delete, and update from the table","isCorrect":false},{"label":"C","text":"Only artifacts in the table’s application can read from the table","isCorrect":false},{"label":"D","text":"All application scopes can read from the table","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import","Application Lifecycle & Git"]},{"id":155,"question":"When configuring a module, what does the Override application menu roles configuration option do?","options":[{"label":"A","text":"Users with the module role but without access to the application menu access the module","isCorrect":true},{"label":"B","text":"Self-Service users can access the module even though they do not have roles","isCorrect":false},{"label":"C","text":"Admin is given access to the module even if Access Controls would ordinarily prevent access","isCorrect":false},{"label":"D","text":"Users with access to the application menu can see the module even if they don’t have the module role","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Application Security","Application Design & UI"]},{"id":156,"question":"Which of the following features are available to Global applications? (Choose two.)","options":[{"label":"A","text":"Automated Test Framework","isCorrect":true},{"label":"B","text":"Source Control","isCorrect":false},{"label":"C","text":"Delegated Development","isCorrect":false},{"label":"D","text":"Flow Designer","isCorrect":true}],"isMultiple":true,"source":"CAD Set 4 (Part 1)","tags":["Application Fundamentals"]},{"id":157,"question":"What is a Module?","options":[{"label":"A","text":"The functionality within an application menu such as opening a page in the content frame or a separate tab or window","isCorrect":true},{"label":"B","text":"A group of menus, or pages, providing related information and functionality to end-users","isCorrect":false},{"label":"C","text":"A way of helping users quickly access information and services by filtering the items in the Application Navigator","isCorrect":false},{"label":"D","text":"A web-based way of providing software to end-users","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Application Design & UI"]},{"id":158,"question":"Identify the INCORRECT statement about DELEGATED DEVELOPMENT in ServiceNow","options":[{"label":"A","text":"Administrators can grant non-admin users the ability to develop global applications","isCorrect":true},{"label":"B","text":"Administrators can specify which application file types the developer can access","isCorrect":false},{"label":"C","text":"Administrators can grant the developer access to script fields","isCorrect":false},{"label":"D","text":"Administrators can grant the developer access to security records","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Application Fundamentals"]},{"id":159,"question":"Here is the Business Rule script template: (function executeRule(current, previous) {})(current, previous); This type of JavaScript function is known as:","options":[{"label":"A","text":"Constructor","isCorrect":false},{"label":"B","text":"Scoped","isCorrect":false},{"label":"C","text":"Anonymous","isCorrect":false},{"label":"D","text":"Self-invoking","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Scripting & APIs"]},{"id":160,"question":"What are some of the benefits of extending an existing table such as the Task table when creating a new application? (Choose 3)","options":[{"label":"A","text":"You can repurpose existing fields by simply changing the label.","isCorrect":true},{"label":"B","text":"Use existing fields with no modifications.","isCorrect":true},{"label":"C","text":"Existing logic from the parent table will be automatically applied to the new table.","isCorrect":true},{"label":"D","text":"All of the parent table records are copied to the new table.","isCorrect":false}],"isMultiple":true,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import"]},{"id":161,"question":"Which method call returns true only if the currently logged in user has the catalog_admin role and in no other case?","options":[{"label":"A","text":"g_user.hasRole(‘catalog_admin’)","isCorrect":false},{"label":"B","text":"g_user.hasRoleExactly(‘catalog_admin’)","isCorrect":true},{"label":"C","text":"g_user.hasRoleOnly(‘catalog_admin’)","isCorrect":false},{"label":"D","text":"g_user.hasRoleFromList(‘catalog_admin’)","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Application Security","Application Design & UI"]},{"id":162,"question":"How must Application Access be configured to prevent all other private application scopes from creating configuration records on an application’s data tables?","options":[{"label":"A","text":"You must create Access Controls to prevent all other application scopes from creating configuration records on an application’s data tables rather than using Application Access","isCorrect":false},{"label":"B","text":"Set the Accessible from field value to All application scopes and de-select the Can create option","isCorrect":false},{"label":"C","text":"Set the Accessible from field value to This application scope only and de-select the Allow access to this table via web services option","isCorrect":false},{"label":"D","text":"Set the Accessible from field value to This application scope only","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import","Flows & Integrations","Application Lifecycle & Git"]},{"id":163,"question":"It is best practice to define the business requirements and the process(es) an application will manage as part of the application development plan. What are some of the considerations to document as part of the business process?","options":[{"label":"A","text":"Business problem, data input/output, users/stakeholders, and process steps","isCorrect":true},{"label":"B","text":"Business problem, data input/output, project schedule, and process steps","isCorrect":false},{"label":"C","text":"Business problem, data input/output, users/stakeholders, and database capacity","isCorrect":false},{"label":"D","text":"Business problem, users/stakeholders, available licenses, and database capacity","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Application Fundamentals"]},{"id":164,"question":"To see what scripts, reports, and other application artifacts will be in a published application:","options":[{"label":"A","text":"Enter the name of the Application in the Global search field","isCorrect":false},{"label":"B","text":"Open the list of Update Sets for the instance","isCorrect":false},{"label":"C","text":"Examine the Application Files Related List in the application to be published","isCorrect":true},{"label":"D","text":"Open the artifact records individually to verify the value in the Application field","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Scripting & APIs"]},{"id":165,"question":"Application developers configure ServiceNow using industry standard javascript to","options":[{"label":"A","text":"Enable the right-click to edit the context menus on application in the navigator","isCorrect":false},{"label":"B","text":"Extend and add functionality","isCorrect":true},{"label":"C","text":"Customize the organization’s company logo and banner text","isCorrect":false},{"label":"D","text":"Configure the outgoing email display name","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Scripting & APIs"]},{"id":166,"question":"Which of the following are configured in an email notification? (Choose 3)","options":[{"label":"A","text":"Who will receive the notification","isCorrect":true},{"label":"B","text":"What content will be in notification","isCorrect":true},{"label":"C","text":"When to send the notification","isCorrect":true},{"label":"D","text":"How to send the notification","isCorrect":false}],"isMultiple":true,"source":"CAD Set 4 (Part 1)","tags":["Flows & Integrations"]},{"id":167,"question":"Which of the following CANNOT be debugged using Field Watcher?","options":[{"label":"A","text":"Business Rules","isCorrect":false},{"label":"B","text":"Script Includes","isCorrect":true},{"label":"C","text":"Client Scripts","isCorrect":false},{"label":"D","text":"Access controls","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import"]},{"id":168,"question":"Which of the following is not supported by Flow Designer? (Choose 2)","options":[{"label":"A","text":"Call a subflow from a flow","isCorrect":false},{"label":"B","text":"Test a flow with rollback","isCorrect":true},{"label":"C","text":"Use Delegated Developer","isCorrect":false},{"label":"D","text":"Run a flow from a metricBase trigger","isCorrect":false},{"label":"E","text":"Automated test framework","isCorrect":true}],"isMultiple":true,"source":"CAD Set 4 (Part 1)","tags":["Flows & Integrations"]},{"id":169,"question":"Which of the following statements does NOT apply when extending an existing table?","options":[{"label":"A","text":"The parent table’s Access Controls are evaluated when determining access to the new table’s records and fields","isCorrect":false},{"label":"B","text":"The new table inherits the functionality built into the parent table","isCorrect":false},{"label":"C","text":"The new table inherits all of the fields from the parent table","isCorrect":false},{"label":"D","text":"You must script and configure all required behaviors","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import"]},{"id":170,"question":"Which of the following are true for reports in ServiceNow? (Choose three.)","options":[{"label":"A","text":"Any user can see any report shared with them.","isCorrect":false},{"label":"B","text":"Can be a graphical representation of data.","isCorrect":true},{"label":"C","text":"All users can generate reports on any table.","isCorrect":false},{"label":"D","text":"Can be run on demand by authorized users.","isCorrect":true},{"label":"E","text":"Can be scheduled to be run and distributed by email.","isCorrect":true}],"isMultiple":true,"source":"CAD Set 4 (Part 1)","tags":["Application Fundamentals"]},{"id":171,"question":"Which of the following is NOT a trigger type in Flow Designer?","options":[{"label":"A","text":"Outbound Email","isCorrect":true},{"label":"B","text":"Application","isCorrect":false},{"label":"C","text":"Record","isCorrect":false},{"label":"D","text":"Schedule","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Flows & Integrations"]},{"id":172,"question":"One of the uses of the ServiceNow REST API Explorer is:","options":[{"label":"A","text":"Practice using REST to interact with public data providers","isCorrect":false},{"label":"B","text":"Find resources on the web for learning about REST","isCorrect":false},{"label":"C","text":"Convert SOAP Message functions to REST methods","isCorrect":false},{"label":"D","text":"Create sample code for sending REST requests to ServiceNow","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Scripting & APIs"]},{"id":173,"question":"Which platform feature can be used to determine the relationship between a field In an import set table to a field in an existing servicenow table","options":[{"label":"A","text":"Business Service Management Map","isCorrect":false},{"label":"B","text":"Transform map","isCorrect":true},{"label":"C","text":"Data Sources","isCorrect":false},{"label":"D","text":"CI Relationship builder","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import"]},{"id":174,"question":"When configuring an Access Control which has no condition or script, which one of the following statements is NOT true?","options":[{"label":"A","text":"table.* will grant access to every field in a record","isCorrect":false},{"label":"B","text":"table.None will grant access to every record on the table","isCorrect":false},{"label":"C","text":"table.field will grant access to a specific field in a record","isCorrect":false},{"label":"D","text":"table.id will grant access to a specific record on the table","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Scripting & APIs","Application Security"]},{"id":175,"question":"Which source control operation is available from BOTH Studio and the Git Repository?","options":[{"label":"A","text":"Create Branch","isCorrect":true},{"label":"B","text":"Apply Remote Changes","isCorrect":false},{"label":"C","text":"Stash Local Changes","isCorrect":false},{"label":"D","text":"Edit Repository Configurations","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Application Lifecycle & Git"]},{"id":176,"question":"When creating new application files in a scoped application, cross scope access is turned on by default in which of the following?","options":[{"label":"A","text":"REST messages","isCorrect":false},{"label":"B","text":"Table","isCorrect":true},{"label":"C","text":"Script Include","isCorrect":false},{"label":"D","text":"Workflow","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Application Lifecycle & Git"]},{"id":177,"question":"Which one of the following is true?","options":[{"label":"A","text":"A UI Policy’s Actions execute before the UI Policy’s Scripts","isCorrect":true},{"label":"B","text":"The execution order for a UI Policy’s Scripts and Actions is determined at runtime","isCorrect":false},{"label":"C","text":"A UI Policy’s Scripts execute before the UI Policy’s Actions","isCorrect":false},{"label":"D","text":"A UI Policy’s Actions and Scripts execute at the same time","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Application Fundamentals"]},{"id":178,"question":"When evaluating Access Controls, ServiceNow searches and evaluates:","options":[{"label":"A","text":"Only for matches on the current table","isCorrect":false},{"label":"B","text":"Only for matches on the current field","isCorrect":false},{"label":"C","text":"From the most specific match to the most generic match","isCorrect":true},{"label":"D","text":"From the most generic match to the most specific match","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Application Security"]},{"id":179,"question":"Which Report Type(s) can be created by right-clicking on a column header in a table’s list?","options":[{"label":"A","text":"Bar Chart, Pie Chart, Histogram, and Line","isCorrect":false},{"label":"B","text":"Bar Chart","isCorrect":false},{"label":"C","text":"Bar Chart, Pie Chart, and Histogram","isCorrect":false},{"label":"D","text":"Bar Chart and Pie Chart","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import"]},{"id":180,"question":"When working in the Form Designer, configuring the label of a field in a child table changes the label on which table(s)?","options":[{"label":"A","text":"base table","isCorrect":false},{"label":"B","text":"child table","isCorrect":true},{"label":"C","text":"parent table","isCorrect":false},{"label":"D","text":"all tables.","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import"]},{"id":181,"question":"In an Email Notification, which one of the following is NOT true for the Weight field?","options":[{"label":"A","text":"Only Notifications with the highest weight for the same record and recipients are sent","isCorrect":false},{"label":"B","text":"A Weight value of zero means that no email should be sent","isCorrect":true},{"label":"C","text":"The Weight value defaults to zero","isCorrect":false},{"label":"D","text":"A Weight value of zero means the Notification is always sent when the Notification When to send criteria is met","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 1)","tags":["Data Model & Import","Flows & Integrations"]},{"id":182,"question":"Which of the following methods are useful in Access Control scripts?","options":[{"label":"A","text":"g_user.hasRole() and current.isNewRecord()","isCorrect":false},{"label":"B","text":"gs.hasRole() and current.isNewRecord()","isCorrect":true},{"label":"C","text":"g_user.hasRole() and current.isNew()","isCorrect":false},{"label":"D","text":"gs.hasRole() and current.isNew()","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs","Application Security"]},{"id":183,"question":"Modules must have a Link type. Which one of the following is a list of Link types?","options":[{"label":"A","text":"List of Records, Separator, Catalog Type, Roles","isCorrect":false},{"label":"B","text":"Assessment, List of Records, Separator, Timeline Page","isCorrect":true},{"label":"C","text":"List of Records, Content Page, Order, URL (from arguments:)","isCorrect":false},{"label":"D","text":"Assessment, List of Records, Content Page, Roles","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Design & UI"]},{"id":184,"question":"Which of the following is part of client side scripting API","options":[{"label":"A","text":"workflow.scratchpad","isCorrect":false},{"label":"B","text":"GlideUser Object (G_user)","isCorrect":true},{"label":"C","text":"Current and previous objects","isCorrect":false},{"label":"D","text":"GlideSystem Object(gs)","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":185,"question":"Which objects can you use in a Scheduled Script Execution (Scheduled Job) script?","options":[{"label":"A","text":"GlideRecord and current","isCorrect":false},{"label":"B","text":"GlideUser and GlideRecord","isCorrect":false},{"label":"C","text":"GlideSystem and GlideRecord","isCorrect":true},{"label":"D","text":"GlideSystem and current","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":186,"question":"Which one of the following is true for GlideUser(g_user) methods?","options":[{"label":"A","text":"Can be used in Client Scripts and Ui Policies only","isCorrect":false},{"label":"B","text":"Can be used in Business Rules only","isCorrect":false},{"label":"C","text":"Can be used in Client scripts, Ui Policies and Ui Actions","isCorrect":true},{"label":"D","text":"Can be used in Business Rules and Script Includes","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":187,"question":"Which of the following statements is true for the Form Designer? (Choose 3)","options":[{"label":"A","text":"To add a field to the form layout, drag the field from the Fields tab to the desired destination on the form.","isCorrect":true},{"label":"B","text":"To create a new field on a form’s table, drag the appropriate data type from the Field Types tab to the form and then configure the new field.","isCorrect":true},{"label":"C","text":"To remove a field from the form layout, hover over the field to enable the Action buttons, and select the Delete (X) button.","isCorrect":true},{"label":"D","text":"To add a section to the form layout, drag it from the Field Types tab to the desired destination on the form.","isCorrect":false}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Application Fundamentals"]},{"id":188,"question":"Which of the following methods prints a message on a blue background to the top of the current form by default?","options":[{"label":"A","text":"g_form.addInfoMsg()","isCorrect":false},{"label":"B","text":"g_form.addInfoMessage()","isCorrect":true},{"label":"C","text":"g_form.showFieldMessage()","isCorrect":false},{"label":"D","text":"g_form.showFieldMsg()","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Fundamentals"]},{"id":189,"question":"There is a basic strategy when creating a Utils Script Include. Identify the step that does not belong.","options":[{"label":"A","text":"Identify the table","isCorrect":true},{"label":"B","text":"Script the function(s)","isCorrect":false},{"label":"C","text":"Create a class","isCorrect":false},{"label":"D","text":"Create a prototype object from the new class","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":190,"question":"In a Business Rule, which one of the following returns true if the currently logged in user has the admin role?","options":[{"label":"A","text":"g_form.hasRoleExactly(‘admin’)","isCorrect":false},{"label":"B","text":"gs.hasRole(‘admin’)","isCorrect":true},{"label":"C","text":"g_form.hasRole(‘admin’)","isCorrect":false},{"label":"D","text":"g_form.hasRole(‘admin’)","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs","Application Security"]},{"id":191,"question":"When a ServiceNow instance requests information from a web service, ServiceNow is the web service:","options":[{"label":"A","text":"Publisher","isCorrect":false},{"label":"B","text":"Specialist","isCorrect":false},{"label":"C","text":"Provider","isCorrect":false},{"label":"D","text":"Consumer","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Fundamentals"]},{"id":192,"question":"Which of the following objects does a Display Business Rule NOT have access to?","options":[{"label":"A","text":"previous","isCorrect":true},{"label":"B","text":"GlideSystem","isCorrect":false},{"label":"C","text":"g_scratchpad","isCorrect":false},{"label":"D","text":"current","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":193,"question":"Which one of the following is NOT a method used for logging messages in a server-side script for a privately-scoped application?","options":[{"label":"A","text":"gs.log()","isCorrect":true},{"label":"B","text":"gs.error()","isCorrect":false},{"label":"C","text":"gs.warn()","isCorrect":false},{"label":"D","text":"gs.debug()","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs","Application Lifecycle & Git"]},{"id":194,"question":"What syntax is used in a Record Producer script to access values from Record Producer form fields?","options":[{"label":"A","text":"producer.field_name","isCorrect":false},{"label":"B","text":"producer.variable_name","isCorrect":true},{"label":"C","text":"current.variable_name","isCorrect":false},{"label":"D","text":"current.field_name","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs","Data Model & Import","Application Design & UI"]},{"id":195,"question":"Which one of the following is true for a Script Include with a Protection Policy value of Protected?","options":[{"label":"A","text":"Any user with the protected_edit role can see and edit the Script Include","isCorrect":false},{"label":"B","text":"The Protection policy option can only be enabled by a user with the admin role","isCorrect":false},{"label":"C","text":"The Protection Policy is applied only if the glide.app.apply_protection system property value is true","isCorrect":false},{"label":"D","text":"The Protection Policy is applied only if the application is downloaded from the ServiceNow App store","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs","Application Security"]},{"id":196,"question":"Which one of the following is true regarding Application Scope?","options":[{"label":"A","text":"All applications are automatically part of the Global scope","isCorrect":false},{"label":"B","text":"Applications downloaded from 3rd party ServiceNow application developers cannot have naming conflicts","isCorrect":true},{"label":"C","text":"Any developer can edit any application","isCorrect":false},{"label":"D","text":"Developers can choose the prefix for a scope’s namespace","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Lifecycle & Git"]},{"id":197,"question":"Which objects can be used in inbound action scripts?","options":[{"label":"A","text":"Current and event","isCorrect":false},{"label":"B","text":"Current and email","isCorrect":true},{"label":"C","text":"Current and producer","isCorrect":false},{"label":"D","text":"Current and previous","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":198,"question":"Which Application Access configuration field(s) are NOT available if the Can read configuration field is NOT selected?","options":[{"label":"A","text":"All access to this table via web services","isCorrect":false},{"label":"B","text":"Can create, Can update, and Can delete","isCorrect":true},{"label":"C","text":"Can read does not affect the availability of other Application Access fields","isCorrect":false},{"label":"D","text":"Allow configuration","isCorrect":false}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Data Model & Import"]},{"id":199,"question":"Which one of the following client side script apply to Record Producers","options":[{"label":"A","text":"Catalog Client scripts and catalog UI Policies","isCorrect":true},{"label":"B","text":"Ui scripts and Ui actions","isCorrect":false},{"label":"C","text":"UI scripts and Record producer scripts","isCorrect":false},{"label":"D","text":"Client scripts and Ui Policies","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs","Data Model & Import","Application Design & UI"]},{"id":200,"question":"From the list below, identify one reason an application might NOT be a good fit with ServiceNow. The application:","options":[{"label":"A","text":"Needs workflow to manage processes","isCorrect":false},{"label":"B","text":"Requires \"as-is\" use of low-level programming libraries","isCorrect":true},{"label":"C","text":"Requires reporting capabilities","isCorrect":false},{"label":"D","text":"Uses forms extensively to interact with data","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Fundamentals"]},{"id":201,"question":"Which one of the following is NOT a UI Action type?","options":[{"label":"A","text":"List choice","isCorrect":false},{"label":"B","text":"Form button","isCorrect":false},{"label":"C","text":"List banner button","isCorrect":false},{"label":"D","text":"Form choice","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Fundamentals"]},{"id":202,"question":"Which one of the following is NOT the purpose of application scoping?","options":[{"label":"A","text":"Provide a relationship between application artifacts","isCorrect":false},{"label":"B","text":"Provide a way of tracking the user who developed an application","isCorrect":true},{"label":"C","text":"Provide a namespace (prefix and scope name) to prevent cross application name collisions","isCorrect":false},{"label":"D","text":"Provide controls for how scripts from another scope can alter tables in a scoped application","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Fundamentals"]},{"id":203,"question":"Which one of the following is true for a table with the \"Allow configuration\" Application Access option selected?","options":[{"label":"A","text":"Only the in scope application’s scripts can create Business Rules for the table","isCorrect":false},{"label":"B","text":"Any user with the application’s user role can modify the application’s scripts","isCorrect":false},{"label":"C","text":"Out of scope applications can create Business Rules for the table","isCorrect":true},{"label":"D","text":"Out of scope applications can add new tables to the scoped application","isCorrect":false}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Data Model & Import"]},{"id":204,"question":"When configuring the content of an Email Notification, which syntax should be used to reference the properties of an event triggering the Notification?","options":[{"label":"A","text":"${event.<property name>}","isCorrect":true},{"label":"B","text":"${current.<property name>}","isCorrect":false},{"label":"C","text":"${property name>.getDisplayValue()}","isCorrect":false},{"label":"D","text":"${gs.<property name>}","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Flows & Integrations"]},{"id":205,"question":"A scoped application containing Flow Designer content dedicated to a particular application is called a(n):","options":[{"label":"A","text":"Spoke","isCorrect":true},{"label":"B","text":"Bundle","isCorrect":false},{"label":"C","text":"Action Way","isCorrect":false},{"label":"D","text":"Flow","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Flows & Integrations","Application Lifecycle & Git"]},{"id":206,"question":"The source control operation used to store local changes on an instance for later application is called","options":[{"label":"A","text":"Tag","isCorrect":false},{"label":"B","text":"Stash","isCorrect":true},{"label":"C","text":"Update Set","isCorrect":false},{"label":"D","text":"Branch","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Lifecycle & Git"]},{"id":207,"question":"Which one of the following is NOT required to link a ServiceNow application to a Git repository?","options":[{"label":"A","text":"Password","isCorrect":false},{"label":"B","text":"URL","isCorrect":false},{"label":"C","text":"User name","isCorrect":false},{"label":"D","text":"Application name","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Lifecycle & Git"]},{"id":208,"question":"When configuring a REST Message, the Endpoint is:","options":[{"label":"A","text":"The commands to the REST script to stop execution","isCorrect":false},{"label":"B","text":"The URI of the data to be accessed, queried, or modified","isCorrect":true},{"label":"C","text":"Information about the format of the returned data","isCorrect":false},{"label":"D","text":"The response from the provider indicating there is no data to send back","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Fundamentals"]},{"id":209,"question":"Which role grants access to source control repository operations such as importing applications from source control or linking an application to source control? (Choose 2)","options":[{"label":"A","text":"Admin","isCorrect":true},{"label":"B","text":"Source_control","isCorrect":true},{"label":"C","text":"Git_admin","isCorrect":false},{"label":"D","text":"Source_comtrol_admin","isCorrect":false}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Application Security","Data Model & Import","Application Lifecycle & Git"]},{"id":210,"question":"Which of the following is not a debugging strategy for client-side scripts?","options":[{"label":"A","text":"g_form.addInfoMessage()","isCorrect":false},{"label":"B","text":"Field watcher","isCorrect":false},{"label":"C","text":"jslog()","isCorrect":false},{"label":"D","text":"gs.log()","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":211,"question":"If the Create module field is selected when creating a table, what is the new module’s default behavior?","options":[{"label":"A","text":"Open an empty form so new records can be created","isCorrect":false},{"label":"B","text":"Open a link to a wiki article with instructions on how to customize the behavior of the new module","isCorrect":false},{"label":"C","text":"Display an empty homepage for the application","isCorrect":false},{"label":"D","text":"Display a list of all records from the table","isCorrect":true}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Data Model & Import","Application Design & UI"]},{"id":212,"question":"How many application menus can an application have?","options":[{"label":"A","text":"3, one for an application’s user modules, one for an application’s administrator modules, and one for the ServiceNow administrator’s modules","isCorrect":false},{"label":"B","text":"As many as the application design requires","isCorrect":true},{"label":"C","text":"2, one for an application’s user modules and one for an application’s administrator modules","isCorrect":false},{"label":"D","text":"1, which is used for all application modules","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Design & UI"]},{"id":213,"question":"Creating a user via ATF step for testing roles and groups is","options":[{"label":"A","text":"Create a user","isCorrect":true},{"label":"B","text":"Create a role","isCorrect":false},{"label":"C","text":"Create a group","isCorrect":false},{"label":"D","text":"Impersonate","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Security"]},{"id":214,"question":"What is the Workflow context?","options":[{"label":"A","text":"The business reason or process for which a workflow is designed","isCorrect":false},{"label":"B","text":"The table for which a workflow is defined plus any condition such as “Active 1”","isCorrect":false},{"label":"C","text":"It is checked-out workflow which is being edited","isCorrect":false},{"label":"D","text":"It is generated firm a workflow version , executes and follows transits","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Flows & Integrations"]},{"id":215,"question":"Which one of the following is not true for modules?","options":[{"label":"A","text":"Every module must be associated with tables","isCorrect":true},{"label":"B","text":"Modules open content pages","isCorrect":false},{"label":"C","text":"Access to modules is controlled with roles","isCorrect":false},{"label":"D","text":"Every module must be part of an application menu","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Design & UI"]},{"id":216,"question":"What information does Debug Business Rules(details) show that debug Business rules does not?","options":[{"label":"A","text":"The must of the business rule evaluation","isCorrect":false},{"label":"B","text":"Old and New values for field values changed by business rules","isCorrect":true},{"label":"C","text":"Debugging information for lists as well as forms","isCorrect":false},{"label":"D","text":"The time at which the business rule executed including milliseconds","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":217,"question":"Which steps are used in business rules without scripts?","options":[{"label":"A","text":"Set field name and enter messages","isCorrect":true},{"label":"B","text":"Set field name and generate event","isCorrect":false},{"label":"C","text":"Set field name and select system log","isCorrect":false},{"label":"D","text":"Set field name and query into database","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":218,"question":"What are the benefits of storing the majority of an application in script? (Choose 3)","options":[{"label":"A","text":"Runs fast","isCorrect":false},{"label":"B","text":"Only run when called","isCorrect":true},{"label":"C","text":"The script logic is hidden","isCorrect":true},{"label":"D","text":"Changes to application logic made at single place","isCorrect":true}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":219,"question":"When debugging email notification, what must you check on a user record? (Choose 2)","options":[{"label":"A","text":"The value in the notification field must be set to enabled","isCorrect":false},{"label":"B","text":"The user must not be locked out","isCorrect":false},{"label":"C","text":"The first name and last name fields must have values","isCorrect":false},{"label":"D","text":"Active must be true","isCorrect":true},{"label":"E","text":"The email field must have a value","isCorrect":true}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Data Model & Import","Flows & Integrations"]},{"id":220,"question":"What are application files in a serviceNow application?","options":[{"label":"A","text":"An XML export of an application’s table records","isCorrect":false},{"label":"B","text":"Servicenow artifacts comprising an application","isCorrect":true},{"label":"C","text":"CSV files containing data imported into an application","isCorrect":false},{"label":"D","text":"XML exports of an application’s update set","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Fundamentals"]},{"id":221,"question":"Which of the following are features of the ServiceNow integration with a git repository?","options":[{"label":"A","text":"Pull or commit individual application files","isCorrect":false},{"label":"B","text":"Create tags to permanently link to a version of an application","isCorrect":true},{"label":"C","text":"Import application files from Git repository","isCorrect":true},{"label":"D","text":"Commit all local changes for an application to the Git repository","isCorrect":true}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Flows & Integrations","Application Lifecycle & Git"]},{"id":222,"question":"Which of the following is true about script Include? (Choose 2)","options":[{"label":"A","text":"Only one function can be stored in a classless script include","isCorrect":true},{"label":"B","text":"A centralized location for reusable functions","isCorrect":true},{"label":"C","text":"A class-less script is callable from client side","isCorrect":false},{"label":"D","text":"Most are called from client scripts","isCorrect":false}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]},{"id":223,"question":"Identify characteristics of a Record Producer (choose 3)","options":[{"label":"A","text":"You can script behaviors of fields in user interface","isCorrect":true},{"label":"B","text":"All records created using this strategy are inserted into requested item","isCorrect":false},{"label":"C","text":"They must be scripted","isCorrect":false},{"label":"D","text":"Each field prompts the user with a question rather than a field label","isCorrect":true},{"label":"E","text":"Graphics can be include on the user interface","isCorrect":true}],"isMultiple":true,"source":"CAD Set 4 (Part 2)","tags":["Data Model & Import","Application Design & UI"]},{"id":224,"question":"Which of the following is not a way to install an application on ServiceNow instance?","options":[{"label":"A","text":"Select the copy button on application record","isCorrect":true},{"label":"B","text":"Download and install a 3rd party application from service Now store","isCorrect":false},{"label":"C","text":"Download and install an application from service Now share web site","isCorrect":false},{"label":"D","text":"Install an application from application repository","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Fundamentals"]},{"id":225,"question":"True about application picker and application scope","options":[{"label":"A","text":"Select a global in application picker sets the application scope to incident","isCorrect":false},{"label":"B","text":"Select an application from the application picker sets the application scope","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Lifecycle & Git"]},{"id":226,"question":"Which of the following is not a caller access field option?","options":[{"label":"A","text":"Caller tracking","isCorrect":false},{"label":"B","text":"Caller restriction","isCorrect":false},{"label":"C","text":"Caller permission","isCorrect":true},{"label":"D","text":"none","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Data Model & Import"]},{"id":227,"question":"Which of the following is true about deleting field from table?","options":[{"label":"A","text":"User defined non inherited field can be deleted","isCorrect":true},{"label":"B","text":"Any field on the table can be deleted","isCorrect":false},{"label":"C","text":"Table record is deleted when a field is deleted","isCorrect":false},{"label":"D","text":"Inherited field can be deleted","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Data Model & Import"]},{"id":228,"question":"In servicenow studio once an application is linked to source control if default branch is set. What is the default value of it?","options":[{"label":"A","text":"Master","isCorrect":false},{"label":"B","text":"sn_instance/<instance_name>","isCorrect":true},{"label":"C","text":"sn_instance/master","isCorrect":false},{"label":"D","text":"<instance-name>","isCorrect":false}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Application Lifecycle & Git"]},{"id":229,"question":"Modified client script APIs","options":[{"label":"A","text":"GlideAjax","isCorrect":false},{"label":"B","text":"g_form","isCorrect":false},{"label":"C","text":"GlideDialogWindow()","isCorrect":false},{"label":"D","text":"All","isCorrect":true}],"isMultiple":false,"source":"CAD Set 4 (Part 2)","tags":["Scripting & APIs"]}];
+  </script>
+
+  <!-- APPLICATION LOGIC -->
+  <script>
+    class CADExamApp {
+      constructor() {
+        this.questions = RAW_QUESTIONS;
+        this.storageKey = 'cad_mock_exam_state_v1';
+        this.state = this.loadState();
+        
+        this.currentSession = null;
+        this.currentQIndex = 0;
+        this.timerInterval = null;
+        this.timeRemaining = 0; // seconds for exam
+        this.timeElapsed = 0; // for study
+        
+        this.init();
+      }
+
+      loadState() {
+        const defaultState = {
+          theme: 'light',
+          history: {}, // questionId: { timesAnswered: 0, correct: 0, lastResult: true/false }
+          starred: {}, // questionId: true
+          notes: {}, // questionId: "note text"
+          completedExams: []
+        };
+        try {
+          const saved = localStorage.getItem(this.storageKey);
+          return saved ? Object.assign(defaultState, JSON.parse(saved)) : defaultState;
+        } catch(e) {
+          return defaultState;
+        }
+      }
+
+      saveState() {
+        try {
+          localStorage.setItem(this.storageKey, JSON.stringify(this.state));
+        } catch(e) {
+          console.error('Storage error:', e);
+        }
+      }
+
+      init() {
+        // Theme setup
+        document.documentElement.setAttribute('data-theme', this.state.theme);
+        this.updateThemeIcon();
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => this.handleKeyPress(e));
+
+        // Render Dashboard
+        this.renderDashboard();
+        this.populateBankFilters();
+
+        console.log('CAD Exam Hub initialized with', this.questions.length, 'questions.');
+      }
+
+      toggleTheme() {
+        this.state.theme = this.state.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', this.state.theme);
+        this.updateThemeIcon();
+        this.saveState();
+      }
+
+      updateThemeIcon() {
+        const icon = document.getElementById('themeIcon');
+        if (this.state.theme === 'dark') {
+          icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+        } else {
+          icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+        }
+      }
+
+      showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2400);
+      }
+
+      showView(viewName) {
+        document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+
+        const target = document.getElementById('view-' + viewName);
+        if (target) target.classList.add('active');
+
+        const activeTab = document.querySelector(`.nav-tab[data-view="${viewName}"]`);
+        if (activeTab) activeTab.classList.add('active');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (viewName === 'dashboard') {
+          this.renderDashboard();
+        } else if (viewName === 'bank') {
+          this.renderBankList();
+        }
+      }
+
+      renderDashboard() {
+        const answeredIds = Object.keys(this.state.history);
+        const totalAnswered = answeredIds.length;
+        let totalCorrect = 0;
+        let missedCount = 0;
+
+        answeredIds.forEach(id => {
+          const h = this.state.history[id];
+          if (h && h.correct > 0) totalCorrect++;
+          if (h && h.lastResult === false) missedCount++;
+        });
+
+        const accuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+        const starredCount = Object.keys(this.state.starred).filter(k => this.state.starred[k]).length;
+
+        document.getElementById('statTotalAnswered').textContent = totalAnswered;
+        document.getElementById('statAccuracy').textContent = accuracy + '%';
+        document.getElementById('statStarred').textContent = starredCount;
+        document.getElementById('statMissed').textContent = missedCount;
+
+        document.getElementById('mistakesCountLabel').textContent = missedCount + ' Questions in Bank';
+        document.getElementById('starredCountLabel').textContent = starredCount + ' Bookmarked Questions';
+
+        // Render Topics breakdown
+        const topicCounts = {};
+        this.questions.forEach(q => {
+          q.tags.forEach(t => {
+            topicCounts[t] = (topicCounts[t] || 0) + 1;
+          });
+        });
+
+        const topicsGrid = document.getElementById('topicsGrid');
+        topicsGrid.innerHTML = '';
+        Object.keys(topicCounts).sort().forEach(tag => {
+          const item = document.createElement('div');
+          item.className = 'topic-item';
+          item.innerHTML = `
+            <span class="topic-name">${tag}</span>
+            <span class="topic-count">${topicCounts[tag]} Qs</span>
+          `;
+          item.onclick = () => this.startTopicPractice(tag);
+          topicsGrid.appendChild(item);
+        });
+      }
+
+      /* SESSION START HELPERS */
+      startStudy(count, filterMode, title) {
+        let pool = [...this.questions];
+
+        if (filterMode === 'random') {
+          pool = this.shuffleArray(pool);
+        }
+
+        const selected = pool.slice(0, count);
+        this.initSession(selected, 'study', title);
+      }
+
+      startBySourceFilter(keyword, title) {
+        const pool = this.questions.filter(q => q.source.includes(keyword));
+        this.initSession(pool, 'study', title);
+      }
+
+      startTopicPractice(topic) {
+        const pool = this.questions.filter(q => q.tags.includes(topic));
+        this.initSession(pool, 'study', `Topic: ${topic} (${pool.length} Qs)`);
+      }
+
+      startMistakesPractice() {
+        const missedIds = Object.keys(this.state.history).filter(id => this.state.history[id]?.lastResult === false);
+        if (missedIds.length === 0) {
+          alert('Great job! You have no questions in your Mistakes Bank. Practice more CAD questions to track weak spots.');
+          return;
+        }
+        const pool = this.questions.filter(q => missedIds.includes(String(q.id)));
+        this.initSession(pool, 'study', `Mistakes Bank Drill (${pool.length} Qs)`);
+      }
+
+      startStarredPractice() {
+        const starredIds = Object.keys(this.state.starred).filter(id => this.state.starred[id]);
+        if (starredIds.length === 0) {
+          alert('You have no starred questions yet. Click the star icon ⭐ on any question to bookmark it.');
+          return;
+        }
+        const pool = this.questions.filter(q => starredIds.includes(String(q.id)));
+        this.initSession(pool, 'study', `Starred Questions Review (${pool.length} Qs)`);
+      }
+
+      startExam(count = 60, type = 'exam-sim', title = 'Timed CAD Exam') {
+        const pool = this.shuffleArray([...this.questions]).slice(0, count);
+        this.initSession(pool, 'exam', title, 90 * 60); // 90 mins
+      }
+
+      initSession(questionList, mode, title, durationSeconds = 0) {
+        if (!questionList || questionList.length === 0) {
+          alert('No questions match this criteria.');
+          return;
+        }
+
+        this.currentSession = {
+          mode: mode, // 'study' or 'exam'
+          title: title,
+          questions: questionList,
+          userAnswers: {}, // index: [selected letters]
+          checked: {}, // index: boolean (in study mode)
+          startTime: Date.now(),
+          duration: durationSeconds,
+          flagged: {} // index: boolean
+        };
+
+        this.currentQIndex = 0;
+
+        // UI setup
+        document.getElementById('sessionTitleBadge').textContent = mode === 'exam' ? 'CAD Exam Simulator' : 'CAD Study Mode';
+        document.getElementById('sessionTitleBadge').className = mode === 'exam' ? 'mode-badge danger' : 'mode-badge primary';
+
+        const timerEl = document.getElementById('examTimer');
+        if (mode === 'exam') {
+          timerEl.style.display = 'flex';
+          this.timeRemaining = durationSeconds;
+          this.startTimer();
+          document.getElementById('checkBtn').style.display = 'none';
+          document.getElementById('finishExamBtn').style.display = 'inline-flex';
+        } else {
+          timerEl.style.display = 'none';
+          clearInterval(this.timerInterval);
+          document.getElementById('checkBtn').style.display = 'inline-flex';
+          document.getElementById('finishExamBtn').style.display = 'none';
+        }
+
+        this.showView('session');
+        this.renderCurrentQuestion();
+        this.renderPalette();
+      }
+
+      startTimer() {
+        clearInterval(this.timerInterval);
+        const timerText = document.getElementById('timerText');
+        const timerEl = document.getElementById('examTimer');
+
+        const updateDisplay = () => {
+          const mins = Math.floor(this.timeRemaining / 60);
+          const secs = this.timeRemaining % 60;
+          timerText.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+          if (this.timeRemaining <= 300) { // last 5 mins
+            timerEl.classList.add('low-time');
+          } else {
+            timerEl.classList.remove('low-time');
+          }
+
+          if (this.timeRemaining <= 0) {
+            clearInterval(this.timerInterval);
+            alert('Time is up! Submitting your CAD exam now.');
+            this.finishExam();
+          }
+          this.timeRemaining--;
+        };
+
+        updateDisplay();
+        this.timerInterval = setInterval(updateDisplay, 1000);
+      }
+
+      renderCurrentQuestion() {
+        const s = this.currentSession;
+        if (!s) return;
+
+        const q = s.questions[this.currentQIndex];
+        const total = s.questions.length;
+
+        // Counters & Progress
+        document.getElementById('questionCounterText').textContent = `Question ${this.currentQIndex + 1} of ${total}`;
+        const pct = Math.round(((this.currentQIndex + 1) / total) * 100);
+        document.getElementById('sessionProgressBar').style.width = pct + '%';
+
+        // Star button state
+        const isStarred = !!this.state.starred[q.id];
+        const starBtn = document.getElementById('starBtn');
+        const starIcon = document.getElementById('starIcon');
+        if (isStarred) {
+          starIcon.setAttribute('fill', 'var(--warning)');
+          starIcon.setAttribute('stroke', 'var(--warning)');
+        } else {
+          starIcon.setAttribute('fill', 'none');
+          starIcon.setAttribute('stroke', 'currentColor');
+        }
+
+        // Tags & Hints
+        const tagsContainer = document.getElementById('qTagsContainer');
+        tagsContainer.innerHTML = '';
+        (q.tags || ['ServiceNow CAD']).forEach(t => {
+          const span = document.createElement('span');
+          span.className = 'tag-badge';
+          span.textContent = t;
+          tagsContainer.appendChild(span);
+        });
+
+        // Source badge
+        const srcBadge = document.createElement('span');
+        srcBadge.className = 'tag-badge';
+        srcBadge.style.color = 'var(--primary)';
+        srcBadge.textContent = q.source;
+        tagsContainer.appendChild(srcBadge);
+
+        // Multiple selection hint
+        const typeHint = document.getElementById('qTypeHint');
+        const correctCount = q.options.filter(o => o.isCorrect).length;
+        if (q.isMultiple || correctCount > 1) {
+          typeHint.textContent = `Multiple Choice (Choose ${correctCount})`;
+          typeHint.className = 'q-type-badge';
+        } else {
+          typeHint.textContent = 'Single Choice (Choose 1)';
+          typeHint.className = 'q-type-badge';
+        }
+
+        // Question text
+        document.getElementById('qText').textContent = q.question;
+
+        // Options
+        const container = document.getElementById('qOptionsContainer');
+        container.innerHTML = '';
+
+        const userSelected = s.userAnswers[this.currentQIndex] || [];
+        const isChecked = s.checked[this.currentQIndex];
+
+        q.options.forEach((opt, idx) => {
+          const optEl = document.createElement('div');
+          optEl.className = 'option-item';
+          const isSelected = userSelected.includes(opt.label);
+
+          if (isSelected) optEl.classList.add('selected');
+
+          // If checked in study mode, highlight right & wrong
+          if (isChecked && s.mode === 'study') {
+            optEl.classList.add('locked');
+            if (opt.isCorrect) {
+              optEl.classList.add('correct');
+            } else if (isSelected && !opt.isCorrect) {
+              optEl.classList.add('incorrect');
+            }
+          }
+
+          optEl.innerHTML = `
+            <div class="opt-letter">${opt.label}</div>
+            <div class="opt-text">${this.escapeHtml(opt.text)}</div>
+            <div class="opt-status-icon">${opt.isCorrect ? '✓' : '✕'}</div>
+          `;
+
+          optEl.onclick = () => {
+            if (isChecked && s.mode === 'study') return;
+            this.handleOptionClick(opt.label, q);
+          };
+
+          container.appendChild(optEl);
+        });
+
+        // Feedback box
+        const feedbackBox = document.getElementById('feedbackBox');
+        if (isChecked && s.mode === 'study') {
+          feedbackBox.classList.add('active');
+          const isAllCorrect = this.isQuestionAnswerCorrect(q, userSelected);
+          if (isAllCorrect) {
+            feedbackBox.className = 'feedback-box active correct';
+            document.getElementById('feedbackTitle').innerHTML = '✓ Correct Answer!';
+          } else {
+            feedbackBox.className = 'feedback-box active incorrect';
+            document.getElementById('feedbackTitle').innerHTML = '✕ Incorrect';
+          }
+
+          const correctLabels = q.options.filter(o => o.isCorrect).map(o => o.label).join(', ');
+          document.getElementById('feedbackExp').innerHTML = `
+            <strong>Correct Option(s): ${correctLabels}</strong><br>
+            Review the official ServiceNow developer documentation, API references, and scoped application guidelines for this concept.
+          `;
+        } else {
+          feedbackBox.classList.remove('active');
+        }
+
+        // Buttons state
+        document.getElementById('prevBtn').disabled = this.currentQIndex === 0;
+        document.getElementById('nextBtn').disabled = this.currentQIndex === total - 1;
+
+        // Note
+        const note = this.state.notes[q.id] || '';
+        document.getElementById('questionNoteInput').value = note;
+
+        this.updatePaletteButton(this.currentQIndex);
+      }
+
+      handleOptionClick(letter, question) {
+        const s = this.currentSession;
+        if (!s) return;
+
+        let currentSelected = s.userAnswers[this.currentQIndex] || [];
+        const correctCount = question.options.filter(o => o.isCorrect).length;
+
+        if (question.isMultiple || correctCount > 1) {
+          // Toggle choice
+          if (currentSelected.includes(letter)) {
+            currentSelected = currentSelected.filter(l => l !== letter);
+          } else {
+            currentSelected.push(letter);
+          }
+        } else {
+          // Single choice
+          currentSelected = [letter];
+        }
+
+        s.userAnswers[this.currentQIndex] = currentSelected;
+        this.renderCurrentQuestion();
+        this.updatePaletteButton(this.currentQIndex);
+      }
+
+      checkAnswer() {
+        const s = this.currentSession;
+        if (!s) return;
+
+        const q = s.questions[this.currentQIndex];
+        const userSelected = s.userAnswers[this.currentQIndex] || [];
+
+        if (userSelected.length === 0) {
+          this.showToast('Please select an option before checking.');
+          return;
+        }
+
+        s.checked[this.currentQIndex] = true;
+        const isCorrect = this.isQuestionAnswerCorrect(q, userSelected);
+
+        // Record history
+        const qId = q.id;
+        if (!this.state.history[qId]) {
+          this.state.history[qId] = { timesAnswered: 0, correct: 0, lastResult: true };
+        }
+        this.state.history[qId].timesAnswered++;
+        if (isCorrect) this.state.history[qId].correct++;
+        this.state.history[qId].lastResult = isCorrect;
+        this.saveState();
+
+        this.renderCurrentQuestion();
+        this.updatePaletteButton(this.currentQIndex);
+      }
+
+      isQuestionAnswerCorrect(question, userLabels) {
+        const correctLabels = question.options.filter(o => o.isCorrect).map(o => o.label).sort();
+        const userSorted = [...userLabels].sort();
+        if (correctLabels.length !== userSorted.length) return false;
+        return correctLabels.every((val, idx) => val === userSorted[idx]);
+      }
+
+      prevQuestion() {
+        if (this.currentQIndex > 0) {
+          this.currentQIndex--;
+          this.renderCurrentQuestion();
+        }
+      }
+
+      nextQuestion() {
+        if (this.currentSession && this.currentQIndex < this.currentSession.questions.length - 1) {
+          this.currentQIndex++;
+          this.renderCurrentQuestion();
+        }
+      }
+
+      jumpToQuestion(index) {
+        if (this.currentSession && index >= 0 && index < this.currentSession.questions.length) {
+          this.currentQIndex = index;
+          this.renderCurrentQuestion();
+        }
+      }
+
+      renderPalette() {
+        const s = this.currentSession;
+        if (!s) return;
+
+        const grid = document.getElementById('paletteGrid');
+        grid.innerHTML = '';
+        document.getElementById('paletteCount').textContent = `${s.questions.length} Questions`;
+
+        s.questions.forEach((q, idx) => {
+          const btn = document.createElement('button');
+          btn.id = 'pal-btn-' + idx;
+          btn.className = 'pal-btn';
+          btn.textContent = idx + 1;
+          btn.onclick = () => this.jumpToQuestion(idx);
+          grid.appendChild(btn);
+        });
+
+        this.updatePaletteButton(this.currentQIndex);
+      }
+
+      updatePaletteButton(idx) {
+        const s = this.currentSession;
+        if (!s) return;
+
+        s.questions.forEach((q, i) => {
+          const btn = document.getElementById('pal-btn-' + i);
+          if (!btn) return;
+
+          btn.className = 'pal-btn';
+          if (i === this.currentQIndex) btn.classList.add('current');
+
+          const userAns = s.userAnswers[i] || [];
+          if (userAns.length > 0) {
+            btn.classList.add('answered');
+          }
+
+          if (s.mode === 'study' && s.checked[i]) {
+            const isCorrect = this.isQuestionAnswerCorrect(q, userAns);
+            btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+          }
+
+          if (s.flagged && s.flagged[i]) {
+            btn.classList.add('flagged');
+          }
+        });
+      }
+
+      toggleCurrentStar() {
+        const s = this.currentSession;
+        if (!s) return;
+        const q = s.questions[this.currentQIndex];
+        const qId = q.id;
+
+        this.state.starred[qId] = !this.state.starred[qId];
+        this.saveState();
+        this.renderCurrentQuestion();
+        this.showToast(this.state.starred[qId] ? '⭐ Question bookmarked' : 'Removed from bookmarks');
+      }
+
+      saveCurrentNote() {
+        const s = this.currentSession;
+        if (!s) return;
+        const q = s.questions[this.currentQIndex];
+        const qId = q.id;
+        const text = document.getElementById('questionNoteInput').value;
+        this.state.notes[qId] = text;
+        this.saveState();
+      }
+
+      confirmExitSession() {
+        const s = this.currentSession;
+        if (!s) return this.showView('dashboard');
+
+        if (s.mode === 'exam') {
+          this.openModal(
+            'Leave Exam?',
+            'Your current CAD exam is in progress. Leaving will calculate your score based on answered questions.',
+            () => this.finishExam()
+          );
+        } else {
+          this.showView('dashboard');
+        }
+      }
+
+      confirmFinishExam() {
+        const s = this.currentSession;
+        if (!s) return;
+
+        const total = s.questions.length;
+        const answered = Object.keys(s.userAnswers).length;
+        const unanswered = total - answered;
+
+        let msg = `You have answered ${answered} of ${total} questions.`;
+        if (unanswered > 0) {
+          msg += ` There are ${unanswered} unanswered questions remaining.`;
+        }
+        msg += ' Are you ready to submit your CAD exam for grading?';
+
+        this.openModal('Submit Exam?', msg, () => this.finishExam());
+      }
+
+      finishExam() {
+        clearInterval(this.timerInterval);
+        const s = this.currentSession;
+        if (!s) return;
+
+        let correct = 0;
+        let incorrect = 0;
+        let unanswered = 0;
+
+        s.questions.forEach((q, idx) => {
+          const userAns = s.userAnswers[idx] || [];
+          const qId = q.id;
+
+          if (userAns.length === 0) {
+            unanswered++;
+            if (!this.state.history[qId]) this.state.history[qId] = { timesAnswered: 0, correct: 0, lastResult: false };
+            this.state.history[qId].timesAnswered++;
+            this.state.history[qId].lastResult = false;
+          } else {
+            const isRight = this.isQuestionAnswerCorrect(q, userAns);
+            if (isRight) {
+              correct++;
+            } else {
+              incorrect++;
+            }
+            if (!this.state.history[qId]) this.state.history[qId] = { timesAnswered: 0, correct: 0, lastResult: true };
+            this.state.history[qId].timesAnswered++;
+            if (isRight) this.state.history[qId].correct++;
+            this.state.history[qId].lastResult = isRight;
+          }
+        });
+
+        this.saveState();
+
+        const total = s.questions.length;
+        const pct = Math.round((correct / total) * 100);
+        const passed = pct >= 70;
+
+        const elapsedSecs = s.duration ? (s.duration - Math.max(0, this.timeRemaining)) : Math.round((Date.now() - s.startTime) / 1000);
+        const elapsedMins = Math.floor(elapsedSecs / 60);
+        const elapsedRemainSecs = elapsedSecs % 60;
+        const timeStr = `${elapsedMins}m ${elapsedRemainSecs}s`;
+
+        // Fill Results View
+        const badge = document.getElementById('resultsBadge');
+        badge.className = `results-badge ${passed ? 'pass' : 'fail'}`;
+        badge.textContent = passed ? '🎉 CAD Exam Passed' : '❌ Needs Improvement (Failed)';
+
+        document.getElementById('resultsScore').textContent = pct + '%';
+        document.getElementById('resultsSub').textContent = `${correct} of ${total} correct · Required: 70% to Pass`;
+
+        document.getElementById('resTime').textContent = timeStr;
+        document.getElementById('resCorrect').textContent = correct;
+        document.getElementById('resWrong').textContent = incorrect;
+        document.getElementById('resUnanswered').textContent = unanswered;
+
+        this.showView('results');
+        this.reviewResults('all');
+      }
+
+      reviewResults(filter) {
+        const s = this.currentSession;
+        if (!s) return;
+
+        const container = document.getElementById('resultsDetailContainer');
+        container.innerHTML = '';
+
+        s.questions.forEach((q, idx) => {
+          const userAns = s.userAnswers[idx] || [];
+          const isRight = this.isQuestionAnswerCorrect(q, userAns);
+
+          if (filter === 'wrong' && isRight) return;
+
+          const card = document.createElement('div');
+          card.className = 'bank-item';
+          card.style.borderLeft = isRight ? '4px solid var(--sn-green)' : '4px solid var(--danger)';
+
+          let optsHtml = '';
+          q.options.forEach(opt => {
+            const isUserChosen = userAns.includes(opt.label);
+            let optClass = 'bank-opt';
+            let mark = '';
+            if (opt.isCorrect) {
+              optClass += ' correct';
+              mark = ' ✓ (Correct Answer)';
+            }
+            if (isUserChosen && !opt.isCorrect) {
+              optClass += ' incorrect';
+              opt.style = 'background: var(--danger-light); color: var(--danger);';
+              mark = ' ✕ (Your Answer)';
+            } else if (isUserChosen && opt.isCorrect) {
+              mark = ' ✓ (Your Answer - Correct)';
+            }
+
+            optsHtml += `
+              <div class="${optClass}">
+                <strong>[${opt.label}]</strong> ${this.escapeHtml(opt.text)} ${mark}
+              </div>
+            `;
+          });
+
+          card.innerHTML = `
+            <div class="bank-item-header">
+              <span class="mode-badge ${isRight ? 'success' : 'danger'}">${isRight ? 'Correct' : 'Incorrect'}</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Q${idx + 1} of ${s.questions.length} · ${q.source}</span>
+            </div>
+            <div class="bank-q-text">${q.question}</div>
+            <div class="bank-options">${optsHtml}</div>
+          `;
+
+          container.appendChild(card);
+        });
+
+        window.scrollTo({ top: document.querySelector('.results-card').offsetTop + 300, behavior: 'smooth' });
+      }
+
+      /* QUESTION BANK METHODS */
+      populateBankFilters() {
+        const topics = new Set();
+        this.questions.forEach(q => q.tags.forEach(t => topics.add(t)));
+        const sel = document.getElementById('bankTopicFilter');
+        Array.from(topics).sort().forEach(t => {
+          const opt = document.createElement('option');
+          opt.value = t;
+          opt.textContent = t;
+          sel.appendChild(opt);
+        });
+      }
+
+      filterBank() {
+        const query = document.getElementById('bankSearchInput').value.toLowerCase().trim();
+        const source = document.getElementById('bankSourceFilter').value;
+        const topic = document.getElementById('bankTopicFilter').value;
+        const status = document.getElementById('bankStatusFilter').value;
+
+        const filtered = this.questions.filter(q => {
+          // Source filter
+          if (source !== 'all' && !q.source.includes(source)) return false;
+
+          // Topic filter
+          if (topic !== 'all' && !q.tags.includes(topic)) return false;
+
+          // Status filter
+          const qId = q.id;
+          if (status === 'starred' && !this.state.starred[qId]) return false;
+          if (status === 'mistakes' && this.state.history[qId]?.lastResult !== false) return false;
+
+          // Query filter
+          if (query) {
+            const inQ = q.question.toLowerCase().includes(query);
+            const inOpts = q.options.some(o => o.text.toLowerCase().includes(query));
+            if (!inQ && !inOpts) return false;
+          }
+
+          return true;
+        });
+
+        document.getElementById('bankResultsCount').textContent = `Showing ${filtered.length} of 229 questions`;
+        this.renderBankList(filtered);
+      }
+
+      renderBankList(items = null) {
+        const list = items || this.questions;
+        const container = document.getElementById('bankList');
+        container.innerHTML = '';
+
+        if (list.length === 0) {
+          container.innerHTML = '<div style="text-align: center; padding: 3rem; color: var(--text-muted);">No questions match your filter criteria.</div>';
+          return;
+        }
+
+        // Render top 100 for fast UI performance
+        list.slice(0, 100).forEach(q => {
+          const qId = q.id;
+          const isStarred = !!this.state.starred[qId];
+
+          const item = document.createElement('div');
+          item.className = 'bank-item';
+
+          let optsHtml = '';
+          q.options.forEach(opt => {
+            optsHtml += `
+              <div class="bank-opt ${opt.isCorrect ? 'correct' : ''}">
+                <strong>[${opt.label}]</strong> ${this.escapeHtml(opt.text)} ${opt.isCorrect ? ' ✓' : ''}
+              </div>
+            `;
+          });
+
+          item.innerHTML = `
+            <div class="bank-item-header">
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span class="tag-badge">#${q.id}</span>
+                <span class="tag-badge" style="color: var(--primary);">${q.source}</span>
+                ${q.tags.map(t => `<span class="tag-badge">${t}</span>`).join('')}
+              </div>
+              <button class="icon-btn" style="width: 28px; height: 28px;" onclick="app.toggleBankStar(${qId}, this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="${isStarred ? 'var(--warning)' : 'none'}" stroke="${isStarred ? 'var(--warning)' : 'currentColor'}" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </button>
+            </div>
+            <div class="bank-q-text">${q.question}</div>
+            <div class="bank-options">${optsHtml}</div>
+          `;
+
+          container.appendChild(item);
+        });
+
+        if (list.length > 100) {
+          const more = document.createElement('div');
+          more.style.textAlign = 'center';
+          more.style.padding = '1.5rem';
+          more.innerHTML = `<span style="color: var(--text-muted); font-size: 0.9rem;">Showing top 100 results. Use the search bar above to narrow down specific topics.</span>`;
+          container.appendChild(more);
+        }
+      }
+
+      toggleBankStar(qId, btn) {
+        this.state.starred[qId] = !this.state.starred[qId];
+        this.saveState();
+        const svg = btn.querySelector('svg');
+        if (this.state.starred[qId]) {
+          svg.setAttribute('fill', 'var(--warning)');
+          svg.setAttribute('stroke', 'var(--warning)');
+        } else {
+          svg.setAttribute('fill', 'none');
+          svg.setAttribute('stroke', 'currentColor');
+        }
+        this.showToast(this.state.starred[qId] ? '⭐ Question bookmarked' : 'Bookmark removed');
+      }
+
+      /* KEYBOARD HANDLERS */
+      handleKeyPress(e) {
+        // Ignore if typing in note or search
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+
+        const s = this.currentSession;
+        if (!s) return;
+
+        const q = s.questions[this.currentQIndex];
+        if (!q) return;
+
+        const key = e.key.toUpperCase();
+
+        // Letters A, B, C, D, E
+        const letters = ['A', 'B', 'C', 'D', 'E'];
+        if (letters.includes(key)) {
+          const opt = q.options.find(o => o.label === key);
+          if (opt) {
+            e.preventDefault();
+            this.handleOptionClick(key, q);
+          }
+        }
+
+        // Numbers 1-5
+        const num = parseInt(e.key);
+        if (num >= 1 && num <= q.options.length) {
+          e.preventDefault();
+          const opt = q.options[num - 1];
+          if (opt) this.handleOptionClick(opt.label, q);
+        }
+
+        // Arrow keys
+        if (e.key === 'ArrowRight' || e.key === 'n') {
+          e.preventDefault();
+          this.nextQuestion();
+        } else if (e.key === 'ArrowLeft' || e.key === 'p') {
+          e.preventDefault();
+          this.prevQuestion();
+        }
+
+        // Enter for Check Answer
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (s.mode === 'study') {
+            this.checkAnswer();
+          }
+        }
+
+        // B or F for Bookmark / Star
+        if (e.key === 'b' || e.key === 'f') {
+          e.preventDefault();
+          this.toggleCurrentStar();
+        }
+      }
+
+      /* MODALS */
+      openModal(title, desc, confirmCallback) {
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalDesc').textContent = desc;
+        this.modalConfirmAction = confirmCallback;
+        document.getElementById('confirmModal').classList.add('active');
+      }
+
+      closeModal() {
+        document.getElementById('confirmModal').classList.remove('active');
+        this.modalConfirmAction = null;
+      }
+
+      handleModalConfirm() {
+        if (typeof this.modalConfirmAction === 'function') {
+          this.modalConfirmAction();
+        }
+        this.closeModal();
+      }
+
+      confirmReset() {
+        this.openModal(
+          'Reset All Progress?',
+          'This will clear your CAD answer history, test stats, bookmarks, and notes. This cannot be undone.',
+          () => {
+            localStorage.removeItem(this.storageKey);
+            this.state = this.loadState();
+            this.renderDashboard();
+            this.showToast('Progress reset successfully.');
+          }
+        );
+      }
+
+      /* UTILITIES */
+      shuffleArray(arr) {
+        const copy = [...arr];
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      }
+
+      escapeHtml(str) {
+        if (!str) return '';
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+    }
+
+    // Launch App
+    const app = new CADExamApp();
+  </script>
+</body>
+</html>
