@@ -11,7 +11,8 @@ export default function SessionHeader() {
     confirmExitSession,
     toggleCurrentFlag,
     toggleCurrentStar,
-    reshuffleCurrentSession
+    reshuffleCurrentSession,
+    resetCurrentModule
   } = useExam();
 
   if (!currentSession) return null;
@@ -83,6 +84,16 @@ export default function SessionHeader() {
             title="Shuffle questions and rearrange answer choices to avoid memory pattern"
           >
             🔀 {currentSession.shuffled ? 'Reshuffle Qs & Choices' : 'Shuffle Qs & Choices'}
+          </button>
+        )}
+
+        {!isExam && currentSession.sessionKey && (
+          <button
+            className="btn btn-outline btn-sm"
+            onClick={resetCurrentModule}
+            title="Clear saved progress for this module only"
+          >
+            ↺ Reset Module
           </button>
         )}
 

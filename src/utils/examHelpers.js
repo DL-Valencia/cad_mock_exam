@@ -3,10 +3,12 @@ export const LEGACY_STORAGE_KEY = 'cad_mock_exam_state_v1';
 
 export function getDefaultState() {
   return {
-    theme: 'light',
+    theme: 'dark',
     history: {}, // qId: { timesAnswered, correct, lastResult }
     starred: {}, // qId: true
     notes: {}, // qId: "text"
+    domainHistory: {}, // topic: { qId: { timesAnswered, correct, lastResult } }
+    savedSessions: {}, // sessionKey: serialized session snapshot
     examHistory: [] // [{ date, title, score, passed, total, correct, timeTaken }]
   };
 }
@@ -76,6 +78,77 @@ export function prepareSessionQuestions(
     prepared = prepared.map((q) => shuffleQuestionChoices(q));
   }
   return prepared;
+}
+
+export const origLabel = (opt) => opt.originalLabel || opt.label;
+
+/** Converts a live session into a storable snapshot keyed by question id + original option labels. */
+export function serializeSession(session, idx = 0) {
+  const order = [];
+  const choices = {};
+  const answers = {};
+  const checked = {};
+  const flagged = {};
+  session.questions.forEach((q, i) => {
+    order.push(q.id);
+    choices[q.id] = q.options.map(origLabel);
+    const ans = session.userAnswers[i] || [];
+    if (ans.length) {
+      answers[q.id] = ans.map((l) => {
+        const o = q.options.find((x) => x.label === l);
+        return o ? origLabel(o) : l;
+      });
+    }
+    if (session.checked[i]) checked[q.id] = true;
+    if (session.flagged[i]) flagged[q.id] = true;
+  });
+  return {
+    order,
+    choices,
+    answers,
+    checked,
+    flagged,
+    idx,
+    shuffled: !!session.shuffled,
+    updatedAt: Date.now()
+  };
+}
+
+/** Rebuilds session questions/answers from a snapshot (order, choice order and answers preserved). */
+export function restoreSession(saved, allQuestions) {
+  const byId = new Map(allQuestions.map((q) => [q.id, q]));
+  const questions = [];
+  saved.order.forEach((id) => {
+    const base = byId.get(id);
+    if (!base) return;
+    const byOrig = new Map(base.options.map((o) => [origLabel(o), o]));
+    const wanted = saved.choices?.[id] || base.options.map(origLabel);
+    let opts = wanted.map((l) => byOrig.get(l)).filter(Boolean);
+    if (opts.length !== base.options.length) opts = base.options;
+    questions.push({
+      ...base,
+      options: opts.map((o, i) => ({
+        ...o,
+        originalLabel: origLabel(o),
+        label: OPTION_LABELS[i] || o.label
+      }))
+    });
+  });
+
+  const userAnswers = {};
+  const checked = {};
+  const flagged = {};
+  questions.forEach((q, i) => {
+    const ans = saved.answers?.[q.id];
+    if (ans && ans.length) {
+      userAnswers[i] = ans
+        .map((l) => q.options.find((o) => origLabel(o) === l)?.label)
+        .filter(Boolean);
+    }
+    if (saved.checked?.[q.id]) checked[i] = true;
+    if (saved.flagged?.[q.id]) flagged[i] = true;
+  });
+  return { questions, userAnswers, checked, flagged };
 }
 
 export function isQuestionAnswerCorrect(question, userLabels = []) {

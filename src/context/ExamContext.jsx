@@ -8,6 +8,8 @@ import {
   savePersistedState,
   shuffleArray,
   prepareSessionQuestions,
+  serializeSession,
+  restoreSession,
   isQuestionAnswerCorrect
 } from '../utils/examHelpers';
 
@@ -91,11 +93,11 @@ export function ExamProvider({ children }) {
     const domainProgress = {};
 
     questions.forEach((q) => {
-      const h = state.history[q.id];
-      const isAnswered = !!h && h.timesAnswered > 0;
-      const isCorrect = !!h && h.correct > 0;
-
       (q.tags || []).forEach((t) => {
+        // Progress is tracked per module (domain) only, never shared across domains
+        const h = state.domainHistory?.[t]?.[q.id];
+        const isAnswered = !!h && h.timesAnswered > 0;
+        const isCorrect = !!h && h.correct > 0;
         topicCounts[t] = (topicCounts[t] || 0) + 1;
         if (!domainProgress[t]) {
           domainProgress[t] = { total: 0, answered: 0, correct: 0, pctAnswered: 0, accuracy: 0 };
@@ -121,7 +123,7 @@ export function ExamProvider({ children }) {
       topicCounts,
       domainProgress
     };
-  }, [state.history, state.starred, questions]);
+  }, [state.history, state.domainHistory, state.starred, questions]);
 
   const allTopics = useMemo(() => {
     const topics = new Set();
@@ -259,12 +261,41 @@ export function ExamProvider({ children }) {
         options
       });
 
+      const { sessionKey = null, scopeTopic = null, fresh = false } = options;
+      const saved = !fresh && sessionKey ? state.savedSessions?.[sessionKey] : null;
+      const restored = saved ? restoreSession(saved, questions) : null;
+
+      if (restored && restored.questions.length > 0) {
+        setCurrentSession({
+          mode,
+          title,
+          baseQuestions: questionList,
+          questions: restored.questions,
+          shuffled: !!saved.shuffled,
+          sessionKey,
+          scopeTopic,
+          userAnswers: restored.userAnswers,
+          checked: restored.checked,
+          startTime: Date.now(),
+          duration: durationSeconds,
+          flagged: restored.flagged
+        });
+        setCurrentQIndex(Math.min(saved.idx || 0, restored.questions.length - 1));
+        setPaletteFilter('all');
+        setTimeRemaining(durationSeconds);
+        showView('session');
+        showToast('▶️ Resumed your saved progress');
+        return;
+      }
+
       setCurrentSession({
         mode, // 'study' | 'exam'
         title,
         baseQuestions: questionList,
         questions: preparedQuestions,
         shuffled: shuffleQuestions || shuffleChoices,
+        sessionKey,
+        scopeTopic,
         userAnswers: {}, // index: [selected labels]
         checked: {}, // index: boolean
         startTime: Date.now(),
@@ -277,28 +308,39 @@ export function ExamProvider({ children }) {
       setTimeRemaining(durationSeconds);
       showView('session');
     },
-    [showView]
+    [showView, showToast, state.savedSessions, questions]
   );
 
-  // Shuffle / Rearrange current study session questions and choices
+  // Shuffle questions + answer choices while KEEPING all answers/checks/flags
   const reshuffleCurrentSession = useCallback(() => {
     if (!currentSession) return;
-    const base = currentSession.baseQuestions || currentSession.questions;
-    const shuffledQuestions = prepareSessionQuestions(base, {
-      shuffleQuestions: true,
-      shuffleChoices: true
+    const snap = serializeSession(currentSession, 0);
+    snap.order = shuffleArray(snap.order);
+    Object.keys(snap.choices).forEach((id) => {
+      snap.choices[id] = shuffleArray(snap.choices[id]);
     });
+    const restored = restoreSession(snap, questions);
     setCurrentSession((prev) => ({
       ...prev,
-      questions: shuffledQuestions,
-      shuffled: true,
-      userAnswers: {},
-      checked: {},
-      flagged: {}
+      questions: restored.questions,
+      userAnswers: restored.userAnswers,
+      checked: restored.checked,
+      flagged: restored.flagged,
+      shuffled: true
     }));
     setCurrentQIndex(0);
-    showToast('🔀 Questions & answer choices shuffled to avoid memory patterns!');
-  }, [currentSession, showToast]);
+    showToast('🔀 Shuffled! Your answered questions are kept.');
+  }, [currentSession, questions, showToast]);
+
+  // Auto-save study sessions that belong to a module so they can be resumed
+  useEffect(() => {
+    if (!currentSession?.sessionKey || currentSession.mode !== 'study') return;
+    const snap = serializeSession(currentSession, currentQIndex);
+    setState((prev) => ({
+      ...prev,
+      savedSessions: { ...(prev.savedSessions || {}), [currentSession.sessionKey]: snap }
+    }));
+  }, [currentSession, currentQIndex]);
 
   // Start Mode Helpers
   const startStudy = useCallback(
@@ -313,13 +355,11 @@ export function ExamProvider({ children }) {
 
       initSession(selected, 'study', title, 0, {
         shuffleQuestions: shouldShuffle,
-        shuffleChoices: shouldShuffle
+        shuffleChoices: shouldShuffle,
+        sessionKey: filterMode === 'all' ? 'marathon' : null
       });
-      if (shouldShuffle) {
-        showToast('🔀 Shuffled questions & answer choices active!');
-      }
     },
-    [questions, marathonShuffle, initSession, showToast]
+    [questions, marathonShuffle, initSession]
   );
 
   const startBySourceFilter = useCallback(
@@ -333,7 +373,10 @@ export function ExamProvider({ children }) {
   const startTopicPractice = useCallback(
     (topic) => {
       const pool = questions.filter((q) => (q.tags || []).includes(topic));
-      initSession(pool, 'study', `Domain: ${topic} (${pool.length} Qs)`);
+      initSession(pool, 'study', `Domain: ${topic} (${pool.length} Qs)`, 0, {
+        sessionKey: `topic:${topic}`,
+        scopeTopic: topic
+      });
     },
     [questions, initSession]
   );
@@ -453,7 +496,7 @@ export function ExamProvider({ children }) {
 
     setState((prev) => {
       const existing = prev.history[qId] || { timesAnswered: 0, correct: 0, lastResult: true };
-      return {
+      const next = {
         ...prev,
         history: {
           ...prev.history,
@@ -464,6 +507,23 @@ export function ExamProvider({ children }) {
           }
         }
       };
+      const topic = currentSession.scopeTopic;
+      if (topic) {
+        const dh = prev.domainHistory || {};
+        const dEx = dh[topic]?.[qId] || { timesAnswered: 0, correct: 0, lastResult: true };
+        next.domainHistory = {
+          ...dh,
+          [topic]: {
+            ...(dh[topic] || {}),
+            [qId]: {
+              timesAnswered: dEx.timesAnswered + 1,
+              correct: isCorrect ? dEx.correct + 1 : dEx.correct,
+              lastResult: isCorrect
+            }
+          }
+        };
+      }
+      return next;
     });
   }, [currentSession, currentQIndex, showToast]);
 
@@ -596,6 +656,26 @@ export function ExamProvider({ children }) {
     );
   }, [openModal, showView, showToast]);
 
+  // Wipe saved progress for the active module and restart it fresh
+  const resetCurrentModule = useCallback(() => {
+    if (!currentSession?.sessionKey) return;
+    const { sessionKey, scopeTopic, baseQuestions, title, mode } = currentSession;
+    openModal(
+      'Reset this module?',
+      'This clears your saved answers and progress for this module only. Other modules are not affected.',
+      () => {
+        setState((prev) => {
+          const savedSessions = { ...(prev.savedSessions || {}) };
+          delete savedSessions[sessionKey];
+          const domainHistory = { ...(prev.domainHistory || {}) };
+          if (scopeTopic) delete domainHistory[scopeTopic];
+          return { ...prev, savedSessions, domainHistory };
+        });
+        initSession(baseQuestions, mode, title, 0, { sessionKey, scopeTopic, fresh: true });
+      }
+    );
+  }, [currentSession, initSession, openModal]);
+
   // Export & Import Data
   const exportData = useCallback(() => {
     const dataStr =
@@ -657,6 +737,7 @@ export function ExamProvider({ children }) {
     marathonShuffle,
     setMarathonShuffle,
     reshuffleCurrentSession,
+    resetCurrentModule,
     startStudy,
     startBySourceFilter,
     startTopicPractice,

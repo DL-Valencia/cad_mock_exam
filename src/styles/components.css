@@ -1408,3 +1408,184 @@
   font-weight: 700;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
+
+/* =========================================================
+   RESPONSIVE: TABLET / MOBILE / SMALL PHONES
+   ========================================================= */
+html,
+body {
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.question-text,
+.opt-text,
+.bank-q-text,
+.bank-opt {
+  overflow-wrap: anywhere;
+}
+
+.topics-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .palette-card {
+    position: static;
+  }
+  .marathon-controls-box {
+    min-width: 0;
+    width: 100%;
+  }
+  .header-breadcrumb {
+    min-width: 0;
+  }
+  .header-breadcrumb span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* Large phones */
+@media (max-width: 760px) {
+  .hero-banner {
+    padding: 1.35rem 1.25rem;
+    gap: 1.1rem;
+  }
+  .hero-content h2 {
+    font-size: 1.3rem;
+  }
+  .hero-actions,
+  .hero-actions .btn {
+    width: 100%;
+  }
+  .header-breadcrumb .muted {
+    display: none;
+  }
+  .header-breadcrumb {
+    font-size: 0.85rem;
+  }
+  .mode-card {
+    padding: 1.15rem;
+  }
+  .topics-section,
+  .history-section,
+  .bank-header {
+    padding: 1.15rem;
+  }
+  .history-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .session-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .session-header .progress-bar-container {
+    max-width: none;
+    width: 100%;
+    flex: none;
+  }
+  .question-card {
+    padding: 1.15rem;
+    gap: 1.1rem;
+  }
+  .question-text {
+    font-size: 1.02rem;
+  }
+  .option-item {
+    padding: 0.8rem 0.9rem;
+  }
+  .q-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .q-controls > div {
+    justify-content: space-between;
+  }
+  .q-controls > div:last-child .btn {
+    width: 100%;
+  }
+  .results-card {
+    padding: 1.5rem 1rem;
+  }
+  .score-big {
+    font-size: 2.75rem;
+  }
+  .results-stats-row {
+    gap: 1.25rem;
+  }
+  .results-actions .btn {
+    flex: 1 1 100%;
+  }
+  .domain-report {
+    overflow-x: auto;
+  }
+  .bank-item {
+    padding: 1rem;
+  }
+  .bank-item-header {
+    align-items: flex-start;
+  }
+  .search-input,
+  .filter-select {
+    flex: 1 1 100%;
+    min-width: 0;
+    width: 100%;
+  }
+  .topic-filter-chip {
+    font-size: 0.74rem;
+  }
+  .modal-box {
+    padding: 1.25rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .toast {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    text-align: center;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .workspace-content {
+    padding: 1rem 0.75rem 1.75rem;
+  }
+  .top-header {
+    padding: 0 0.75rem;
+  }
+  .header-actions {
+    gap: 0.35rem;
+  }
+  .header-action-btn {
+    padding: 0 0.55rem;
+  }
+  .stat-card {
+    padding: 1rem;
+  }
+  .marathon-action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .palette-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .app-footer {
+    padding: 1rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .app-sidebar {
+    width: min(86vw, var(--sidebar-width));
+  }
+}
